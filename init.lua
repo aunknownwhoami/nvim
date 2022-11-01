@@ -24,7 +24,7 @@ require "user.hop"
 require "user.matchup"
 require "user.numb"
 require "user.dial"
-require "user.colorizer"
+--require "user.colorizer"
 require "user.spectre"
 require "user.zen-mode"
 require "user.neoscroll"
@@ -61,29 +61,7 @@ require "user.vim-slash"
 require "user.bufferline"
 require "user.wilder"
 require "user.move"
-
-
-require("lspconfig")["pyright"].setup {
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
-
-
--- coderunner
-require('code_runner').setup({
-  -- put here the commands by filetype
-  filetype = {
-		java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
-		python = "python3 -u",
-		typescript = "deno run",
-		rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
-    c = "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt",
-    cpp = "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt",
-    sh = "bash",
-    js = "node"
-
-	},
-})
-
+require "user.copilot"
+require "user.tools"
 
 

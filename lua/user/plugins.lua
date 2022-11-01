@@ -64,16 +64,17 @@ return packer.startup(function(use)
   use "SmiteshP/nvim-navic"
   use "simrat39/symbols-outline.nvim"
   use "b0o/SchemaStore.nvim"
-  use "github/copilot.vim"
+  -- use "github/copilot.vim"
   use {
     "zbirenbaum/copilot.lua",
-    event = { "VimEnter" },
+    event = "InsertEnter",
     config = function()
-      vim.defer_fn(function()
-        require "user.copilot"
-      end, 100)
+      vim.schedule(function()
+        require("copilot").setup()
+      end)
     end,
   }
+
   use "RRethy/vim-illuminate"
   use "j-hui/fidget.nvim"
   use "lvimuser/lsp-inlayhints.nvim"
@@ -81,18 +82,18 @@ return packer.startup(function(use)
   use "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
 
   -- Completion
-  use "christianchiarulli/nvim-cmp"
+  use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use "hrsh7th/cmp-nvim-lsp"
+  use { "hrsh7th/cmp-nvim-lsp" }
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
   use "zbirenbaum/copilot-cmp"
-  use { "tzachar/cmp-tabnine", commit = "1a8fd2795e4317fd564da269cc64a2fa17ee854e", run = "./install.sh" }
+  --tabnine
+  use { "tzachar/cmp-tabnine", run = "./install.sh" }
 
-  -- Snippet
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
@@ -124,19 +125,18 @@ return packer.startup(function(use)
   use "mickael-menu/zk-nvim"
 
   -- Color
-  use "NvChad/nvim-colorizer.lua"
+  -- use "NvChad/nvim-colorizer.lua"
   -- use "ziontee113/color-picker.nvim"
   use {
     "max397574/colortils.nvim",
     cmd = "Colortils",
-    config = function()
-    end,
+    config = function() end,
   }
 
   -- Colorschemes
   use "lunarvim/onedarker.nvim"
   use "lunarvim/darkplus.nvim"
-  -- use "folke/tokyonight.nvim"
+  use "folke/tokyonight.nvim"
   -- use "lunarvim/colorschemes"
 
   -- Utility
@@ -146,9 +146,6 @@ return packer.startup(function(use)
   use "moll/vim-bbye"
   use "lewis6991/impatient.nvim"
   use "lalitmee/browse.nvim"
-
-  -- Registers
-  use "tversteeg/registers.nvim"
 
   -- Icon
   use "kyazdani42/nvim-web-devicons"
@@ -268,13 +265,28 @@ return packer.startup(function(use)
 
   use { "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" }
 
-  use 'marko-cerovac/material.nvim'
+  use "manzeloth/live-server"
+
+  use { "turbio/bracey.vim", run = "npm install --prefix server" }
+
+  use { "brenoprata10/nvim-highlight-colors" }
+
+  use { "navarasu/onedark.nvim" 
+ 
+  }
+
+  use {
+    "max397574/better-escape.nvim",
+    config = function()
+      require("better_escape").setup()
+    end,
+  }
   -- Graveyard
   -- use "romgrk/nvim-treesitter-context"
   -- use "mizlan/iswap.nvim"
   -- use {'christianchiarulli/nvim-ts-rainbow'}
-  -- use "nvim-telescope/telescope-ui-select.nvim"
-  -- use "nvim-telescope/telescope-file-browser.nvim"
+  -- use "nvim-telescope/telescope-ui-selectvvim"
+  use "nvim-telescope/telescope-file-browser.nvim"
   -- use 'David-Kunz/cmp-npm' -- doesn't seem to work
   -- use { "christianchiarulli/JABS.nvim" }
   -- use "lunarvim/vim-solidity"

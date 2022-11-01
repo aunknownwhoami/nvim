@@ -189,12 +189,12 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 })
 
 --colorizer
-vim.cmd [[
-  augroup Colorizer
-    autocmd!
-    autocmd BufEnter * ColorizerAttachToBuffer
-  augroup END
-]]
+-- vim.api.nvim_create_autocmd({ "BufEnter" }, {
+--   pattern = { "*" },
+--   callback = function()
+--     require("colorizer").setup()
+--   end,
+-- })
 
 --Runcode autocmd
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
@@ -213,7 +213,39 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   },
   callback = function()
     vim.cmd [[
-            :RunFile
+            :RunCode
         ]]
   end,
 })
+
+-- syntax highlighting
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  pattern = { "*" },
+  callback = function()
+    vim.cmd [[
+            :syntax on
+        ]]
+  end,
+})
+
+--highlight coloron
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  pattern = { "*" },
+  callback = function()
+    vim.cmd [[
+            :HighlightColorsToggle
+        ]]
+  end,
+})
+
+--documantation higlighter lsp 
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  pattern = { "*" },
+  callback = function()
+    vim.cmd [[
+            :lua vim.lsp.buf.document_highlight()
+        ]]
+  end,
+})
+
+

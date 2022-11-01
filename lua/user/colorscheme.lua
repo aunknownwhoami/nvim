@@ -1,5 +1,5 @@
 -- local colorscheme = "darkplus"
-local colorscheme = "onedarker"
+local colorscheme = "onedark"
 
 vim.g.onedarker_italic_keywords = false
 
@@ -11,8 +11,10 @@ vim.g.onedarker_italic_loops = false
 
 vim.g.onedarker_italic_conditionals = false
 
---materiala
-vim.g.material_style = "darker"
+--onedark colorscheme
+require('onedark').setup {
+    style = 'darker'
+}
 
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)

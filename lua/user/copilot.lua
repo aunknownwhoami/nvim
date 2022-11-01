@@ -1,12 +1,12 @@
 -- For copilot.vim
-vim.g.copilot_filetypes = {
-  ["*"] = true,
-}
+-- vim.g.copilot_filetypes = {
+--   ["*"] = true,
+-- }
 
-vim.cmd [[
-  imap <silent><script><expr> <C-A> copilot#Accept("\<CR>")
-  let g:copilot_no_tab_map = v:true
-]]
+-- vim.cmd [[
+--   imap <silent><script><expr> <C-A> copilot#Accept("\<CR>")
+--   let g:copilot_no_tab_map = v:true
+-- ]]
 
 
 local status_ok, copilot = pcall(require, "copilot")
@@ -21,8 +21,32 @@ copilot.setup {
   },
   panel = { -- no config options yet
     enabled = true,
+    auto_refresh = true,
+  keymap = {
+    jump_prev = "[[",
+    jump_next = "]]",
+    accept = "<C-A>",
+    refresh = "gr",
+    open = "<M-CR>"
+  }
   },
   ft_disable = { "markdown" },
+  suggestion = {
+    enabled = true,
+    auto_trigger = true,
+    debounce = 75,
+    keymap = {
+     accept = "<C-A>",
+     next = "<M-]>",
+     prev = "<M-[>",
+     dismiss = "<C-]>",
+    },
+    filetypes = {
+      ["*"] = true,
+    },
+  },
+
+
   -- plugin_manager_path = vim.fn.stdpath "data" .. "/site/pack/packer",
   server_opts_overrides = {
     -- trace = "verbose",
@@ -34,3 +58,4 @@ copilot.setup {
     },
   },
 }
+

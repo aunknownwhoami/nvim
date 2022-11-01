@@ -16,7 +16,6 @@ local servers = {
   "jdtls",
   "jsonls",
   "solc",
-  "solidity_ls",
   "sumneko_lua",
   "tflint",
   "terraformls",

@@ -105,6 +105,17 @@ _G.packer_plugins = {
     path = "/home/whoami/.local/share/nvim/site/pack/packer/start/auto-session",
     url = "https://github.com/rmagatti/auto-session"
   },
+  ["better-escape.nvim"] = {
+    config = { "\27LJ\2\n;\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\18better_escape\frequire\0" },
+    loaded = true,
+    path = "/home/whoami/.local/share/nvim/site/pack/packer/start/better-escape.nvim",
+    url = "https://github.com/max397574/better-escape.nvim"
+  },
+  ["bracey.vim"] = {
+    loaded = true,
+    path = "/home/whoami/.local/share/nvim/site/pack/packer/start/bracey.vim",
+    url = "https://github.com/turbio/bracey.vim"
+  },
   ["browse.nvim"] = {
     loaded = true,
     path = "/home/whoami/.local/share/nvim/site/pack/packer/start/browse.nvim",
@@ -175,17 +186,12 @@ _G.packer_plugins = {
     url = "https://github.com/zbirenbaum/copilot-cmp"
   },
   ["copilot.lua"] = {
-    config = { "\27LJ\2\n,\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\17user.copilot\frequire-\1\0\4\0\3\0\0066\0\0\0009\0\1\0003\2\2\0)\3d\0B\0\3\1K\0\1\0\0\rdefer_fn\bvim\0" },
+    config = { "\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fcopilot\frequire)\1\0\3\0\3\0\0056\0\0\0009\0\1\0003\2\2\0B\0\2\1K\0\1\0\0\rschedule\bvim\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
     path = "/home/whoami/.local/share/nvim/site/pack/packer/opt/copilot.lua",
     url = "https://github.com/zbirenbaum/copilot.lua"
-  },
-  ["copilot.vim"] = {
-    loaded = true,
-    path = "/home/whoami/.local/share/nvim/site/pack/packer/start/copilot.vim",
-    url = "https://github.com/github/copilot.vim"
   },
   ["crates.nvim"] = {
     loaded = true,
@@ -277,6 +283,11 @@ _G.packer_plugins = {
     path = "/home/whoami/.local/share/nvim/site/pack/packer/start/lir.nvim",
     url = "https://github.com/christianchiarulli/lir.nvim"
   },
+  ["live-server"] = {
+    loaded = true,
+    path = "/home/whoami/.local/share/nvim/site/pack/packer/start/live-server",
+    url = "https://github.com/manzeloth/live-server"
+  },
   ["lsp-inlayhints.nvim"] = {
     loaded = true,
     path = "/home/whoami/.local/share/nvim/site/pack/packer/start/lsp-inlayhints.nvim",
@@ -319,11 +330,6 @@ _G.packer_plugins = {
     path = "/home/whoami/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  ["material.nvim"] = {
-    loaded = true,
-    path = "/home/whoami/.local/share/nvim/site/pack/packer/start/material.nvim",
-    url = "https://github.com/marko-cerovac/material.nvim"
-  },
   ["move.nvim"] = {
     loaded = true,
     path = "/home/whoami/.local/share/nvim/site/pack/packer/start/move.nvim",
@@ -357,12 +363,7 @@ _G.packer_plugins = {
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/whoami/.local/share/nvim/site/pack/packer/start/nvim-cmp",
-    url = "https://github.com/christianchiarulli/nvim-cmp"
-  },
-  ["nvim-colorizer.lua"] = {
-    loaded = true,
-    path = "/home/whoami/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
-    url = "https://github.com/NvChad/nvim-colorizer.lua"
+    url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-dap"] = {
     loaded = true,
@@ -373,6 +374,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/whoami/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
     url = "https://github.com/rcarriga/nvim-dap-ui"
+  },
+  ["nvim-highlight-colors"] = {
+    loaded = true,
+    path = "/home/whoami/.local/share/nvim/site/pack/packer/start/nvim-highlight-colors",
+    url = "https://github.com/brenoprata10/nvim-highlight-colors"
   },
   ["nvim-jdtls"] = {
     loaded = true,
@@ -444,6 +450,11 @@ _G.packer_plugins = {
     path = "/home/whoami/.local/share/nvim/site/pack/packer/start/octo.nvim",
     url = "https://github.com/pwntester/octo.nvim"
   },
+  ["onedark.nvim"] = {
+    loaded = true,
+    path = "/home/whoami/.local/share/nvim/site/pack/packer/start/onedark.nvim",
+    url = "https://github.com/navarasu/onedark.nvim"
+  },
   ["onedarker.nvim"] = {
     loaded = true,
     path = "/home/whoami/.local/share/nvim/site/pack/packer/start/onedarker.nvim",
@@ -473,11 +484,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/whoami/.local/share/nvim/site/pack/packer/start/project.nvim",
     url = "https://github.com/ahmedkhalf/project.nvim"
-  },
-  ["registers.nvim"] = {
-    loaded = true,
-    path = "/home/whoami/.local/share/nvim/site/pack/packer/start/registers.nvim",
-    url = "https://github.com/tversteeg/registers.nvim"
   },
   ["rust-tools.nvim"] = {
     loaded = true,
@@ -510,6 +516,11 @@ _G.packer_plugins = {
     url = "https://github.com/abecodes/tabout.nvim",
     wants = { "nvim-treesitter" }
   },
+  ["telescope-file-browser.nvim"] = {
+    loaded = true,
+    path = "/home/whoami/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
+    url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
+  },
   ["telescope-media-files.nvim"] = {
     loaded = true,
     path = "/home/whoami/.local/share/nvim/site/pack/packer/start/telescope-media-files.nvim",
@@ -534,6 +545,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/whoami/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
+  },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/home/whoami/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
   },
   ["typescript.nvim"] = {
     loaded = true,
@@ -612,6 +628,10 @@ time([[Config for auto-save.nvim]], false)
 time([[Config for wilder.nvim]], true)
 try_loadstring("\27LJ\2\n\v\0\0\1\0\0\0\1K\0\1\0\0", "config", "wilder.nvim")
 time([[Config for wilder.nvim]], false)
+-- Config for: better-escape.nvim
+time([[Config for better-escape.nvim]], true)
+try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\18better_escape\frequire\0", "config", "better-escape.nvim")
+time([[Config for better-escape.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
@@ -626,7 +646,7 @@ vim.cmd [[au FileType markdown ++once lua require("packer.load")({'markdown-prev
 time([[Defining lazy-load filetype autocommands]], false)
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au VimEnter * ++once lua require("packer.load")({'copilot.lua'}, { event = "VimEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'copilot.lua'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 

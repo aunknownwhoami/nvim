@@ -13,6 +13,7 @@ if not tabnine_status_ok then
   return
 end
 
+
 local buffer_fts = {
   "markdown",
   "toml",
@@ -164,12 +165,15 @@ cmp.setup {
 
       -- NOTE: order matters
       vim_item.menu = ({
-        nvim_lsp = "",
-        nvim_lua = "",
-        luasnip = "",
-        buffer = "",
-        path = "",
-        emoji = "",
+        nvim_lsp = "LSP",
+        nvim_lua = "nvim_lua",
+        luasnip = "Lunaship",
+        buffer = "Buffer",
+        path = "Path",
+        emoji = "Emoji",
+        cmp_tabnine = "TN",
+        copilot = "copilet",
+        ultisnips = "UltiSnips",
       })[entry.source.name]
       return vim_item
     end,
