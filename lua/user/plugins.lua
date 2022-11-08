@@ -65,15 +65,7 @@ return packer.startup(function(use)
   use "simrat39/symbols-outline.nvim"
   use "b0o/SchemaStore.nvim"
   -- use "github/copilot.vim"
-  use {
-    "zbirenbaum/copilot.lua",
-    event = "InsertEnter",
-    config = function()
-      vim.schedule(function()
-        require("copilot").setup()
-      end)
-    end,
-  }
+
 
   use "RRethy/vim-illuminate"
   use "j-hui/fidget.nvim"
@@ -91,6 +83,16 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
   use "zbirenbaum/copilot-cmp"
+  use {
+  "zbirenbaum/copilot.lua",
+  event = "InsertEnter",
+  config = function ()
+    vim.schedule(function()
+      require("copilot").setup()
+    end)
+  end,
+}
+
   --tabnine
   use { "tzachar/cmp-tabnine", run = "./install.sh" }
 
@@ -270,11 +272,7 @@ return packer.startup(function(use)
   use { "turbio/bracey.vim", run = "npm install --prefix server" }
 
   use { "brenoprata10/nvim-highlight-colors" }
-
-  use { "navarasu/onedark.nvim" 
  
-  }
-
   use {
     "max397574/better-escape.nvim",
     config = function()
