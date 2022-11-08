@@ -28,6 +28,8 @@ local servers = {
   "taplo",
   "zk@v0.10.1",
   "lemminx"
+
+
 }
 
 local settings = {

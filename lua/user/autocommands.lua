@@ -237,15 +237,3 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
         ]]
   end,
 })
-
---documantation higlighter lsp 
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-  pattern = { "*" },
-  callback = function()
-    vim.cmd [[
-            :lua vim.lsp.buf.document_highlight()
-        ]]
-  end,
-})
-
-
