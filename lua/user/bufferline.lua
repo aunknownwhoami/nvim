@@ -75,11 +75,11 @@ bufferline.setup {
   highlights = {
     fill = {
       fg = { attribute = "fg", highlight = "#ff0000" },
-      bg = { attribute = "bg", highlight = "TabLine" },
+      bg = { attribute = "bg", highlight = "#282828" },
     },
     background = {
       fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
+      bg = { attribute = "bg", highlight = "#282828" },
     },
 
     -- buffer_selected = {
@@ -88,13 +88,13 @@ bufferline.setup {
     --    = 'none'
     --   },
     buffer_visible = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
+      fg = { attribute = "fg", highlight = "#282828" },
+      bg = { attribute = "bg", highlight = "#282828" },
     },
 
     close_button = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
+      fg = { attribute = "fg", highlight = "#282828" },
+      bg = { attribute = "bg", highlight = "#282828" },
     },
     close_button_visible = {
       fg = { attribute = "fg", highlight = "TabLine" },
@@ -149,8 +149,8 @@ bufferline.setup {
     },
 
     separator = {
-      fg = { attribute = "bg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
+      fg = { attribute = "bg", highlight = "#282828" },
+      bg = { attribute = "bg", highlight = "#282828" },
     },
     separator_selected = {
       fg = { attribute = "bg", highlight = "Normal" },
