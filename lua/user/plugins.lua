@@ -82,7 +82,13 @@ return packer.startup(function(use)
   use { "hrsh7th/cmp-nvim-lsp" }
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
-  use "zbirenbaum/copilot-cmp"
+  use {
+  "zbirenbaum/copilot-cmp",
+  after = { "copilot.lua" },
+  config = function ()
+    require("copilot_cmp").setup()
+  end
+}
   use {
   "zbirenbaum/copilot.lua",
   event = "InsertEnter",
@@ -279,6 +285,8 @@ return packer.startup(function(use)
       require("better_escape").setup()
     end,
   }
+
+  use { "ellisonleao/gruvbox.nvim" }
 
 
   -- Graveyard
