@@ -9,6 +9,12 @@ require("lspconfig")["tailwindcss"].setup {
   flags = lsp_flags,
 }
 
+--intelephense is a php language server that supports intellisense
+require("lspconfig")["intelephense"].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+}
+
 -- coderunner
 require('code_runner').setup({
   -- put here the commands by filetype
@@ -19,8 +25,10 @@ require('code_runner').setup({
 		rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
     c = "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt",
     cpp = "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt",
-    sh = "bash",
+    -- sh = "bash",
     javascript = "node",
+    php = "php",
+    assembly = "nasm -f elf64 $fileName && ld $fileNameWithoutExt.o -o $fileNameWithoutExt && $dir/$fileNameWithoutExt",
 
 	},
 

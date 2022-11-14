@@ -63,5 +63,3 @@ require "user.wilder"
 require "user.move"
 require "user.copilot"
 require "user.tools"
-
-

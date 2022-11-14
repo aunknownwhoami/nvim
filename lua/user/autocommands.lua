@@ -210,6 +210,8 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     "*.sh",
     "*.html",
     "*.css",
+    "*.php",
+    "*.asm",
   },
   callback = function()
     vim.cmd [[
@@ -237,3 +239,4 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
         ]]
   end,
 })
+
