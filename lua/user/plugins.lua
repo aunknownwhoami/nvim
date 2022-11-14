@@ -250,6 +250,7 @@ return packer.startup(function(use)
     ft = "markdown",
   }
 
+  --auto save 
   use {
     "Pocco81/auto-save.nvim",
     config = function()
@@ -259,7 +260,7 @@ return packer.startup(function(use)
       }
     end,
   }
-
+--command auto complete 
   use {
     "gelguy/wilder.nvim",
     config = function()
@@ -267,18 +268,25 @@ return packer.startup(function(use)
     end,
   }
 
+  --move lines 
   use "fedepujol/move.nvim"
 
+--multi cursor
   use { "mg979/vim-visual-multi", branch = "master" }
 
+--code runner 
   use { "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" }
 
-  use "manzeloth/live-server"
+  --live server 
+--  use "manzeloth/live-server"
 
+  --liveserver with live complete 
   use { "turbio/bracey.vim", run = "npm install --prefix server" }
 
+  --coloriger with rgb hexa 
   use { "brenoprata10/nvim-highlight-colors" }
- 
+
+  -- better escaping 
   use {
     "max397574/better-escape.nvim",
     config = function()
@@ -286,8 +294,15 @@ return packer.startup(function(use)
     end,
   }
 
+  --grovebox coloerscheme 
   use { "ellisonleao/gruvbox.nvim" }
 
+  --fold lines 
+  use{ 'anuvyklack/pretty-fold.nvim',
+   config = function()
+      require('pretty-fold').setup()
+   end
+}
 
 
   -- Graveyard
