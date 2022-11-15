@@ -42,13 +42,4 @@ require("nvim-highlight-colors").setup {
 	enable_tailwind = true
 }
 
---grivebox coloerscheme 
-require("gruvbox").setup({
-    palette_overrides = {
-        light0 = "#00ff00",
-        light1 = "#00ff00",
-        bright_blue = "#3cc1c7",
-    }
-})
-vim.cmd("colorscheme gruvbox")
 

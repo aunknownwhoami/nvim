@@ -1,5 +1,5 @@
 -- local colorscheme = "darkplus"
-local colorscheme = "gruvbox"
+local colorscheme = "tokyonight-night"
 
 vim.g.onedarker_italic_keywords = false
 

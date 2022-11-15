@@ -294,16 +294,6 @@ return packer.startup(function(use)
     end,
   }
 
-  --grovebox coloerscheme 
-  use { "ellisonleao/gruvbox.nvim" }
-
-  --fold lines 
-  use{ 'anuvyklack/pretty-fold.nvim',
-   config = function()
-      require('pretty-fold').setup()
-   end
-}
-
 
   -- Graveyard
   -- use "romgrk/nvim-treesitter-context"
