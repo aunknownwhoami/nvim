@@ -231,12 +231,12 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 })
 
 --highlight coloron
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-  pattern = { "*" },
-  callback = function()
-    vim.cmd [[
-            :HighlightColorsToggle
-        ]]
-  end,
-})
+--vim.api.nvim_create_autocmd({ "BufEnter" }, {
+--  pattern = { "*" },
+--  callback = function()
+--    vim.cmd [[
+--            :HighlightColorsToggle
+--        ]]
+--  end,
+--})
 
