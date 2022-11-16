@@ -18,6 +18,7 @@ copilot.setup {
   cmp = {
     enabled = true,
     method = "getCompletionsCycling",
+  
   },
   panel = { -- no config options yet
     enabled = true,
@@ -46,6 +47,7 @@ copilot.setup {
     },
   },
 
+  copilot_node_command = 'node', -- Node version must be < 18
 
   -- plugin_manager_path = vim.fn.stdpath "data" .. "/site/pack/packer",
   server_opts_overrides = {

@@ -74,7 +74,7 @@ return packer.startup(function(use)
   use "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
 
   -- Completion
-  use "hrsh7th/nvim-cmp"
+   use "christianchiarulli/nvim-cmp"
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
@@ -82,23 +82,16 @@ return packer.startup(function(use)
   use { "hrsh7th/cmp-nvim-lsp" }
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
-  use {
-  "zbirenbaum/copilot-cmp",
-  after = { "copilot.lua" },
-  config = function ()
-    require("copilot_cmp").setup()
-  end
-}
-  use {
-  "zbirenbaum/copilot.lua",
-  event = "InsertEnter",
-  config = function ()
-    vim.schedule(function()
-      require("copilot").setup()
-    end)
-  end,
-}
-
+ use {
+    "zbirenbaum/copilot.lua",
+    event = { "VimEnter" },
+    config = function()
+      vim.defer_fn(function()
+        require "user.copilot"
+      end, 100)
+    end,
+  }
+    use "zbirenbaum/copilot-cmp"
   --tabnine
   use { "tzachar/cmp-tabnine", run = "./install.sh" }
 
