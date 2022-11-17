@@ -197,28 +197,28 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 -- })
 
 --Runcode autocmd
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  pattern = {
-    "*.py",
-    "*.js",
-    "*.ts",
-    "*.java",
-    "*.c",
-    "*.cpp",
-    "*.go",
-    "*.lua",
-    "*.sh",
-    "*.html",
-    "*.css",
-    "*.php",
-    "*.asm",
-  },
-  callback = function()
-    vim.cmd [[
-            :RunCode
-        ]]
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+--   pattern = {
+--     "*.py",
+--     "*.js",
+--     "*.ts",
+--     "*.java",
+--     "*.c",
+--     "*.cpp",
+--     "*.go",
+--     "*.lua",
+--     "*.sh",
+--     "*.html",
+--     "*.css",
+--     "*.php",
+--     "*.asm",
+--   },
+--   callback = function()
+--     vim.cmd [[
+--             :RunCode
+--         ]]
+--   end,
+-- })
 
 -- syntax highlighting
 vim.api.nvim_create_autocmd({ "BufEnter" }, {

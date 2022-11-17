@@ -1,18 +1,10 @@
 require("lspconfig")["pyright"].setup {
   on_attach = on_attach,
-  flags = lsp_flags,
 
 }
 
 require("lspconfig")["tailwindcss"].setup {
   on_attach = on_attach,
-  flags = lsp_flags,
-}
-
---intelephense is a php language server that supports intellisense
-require("lspconfig")["intelephense"].setup {
-  on_attach = on_attach,
-  flags = lsp_flags,
 }
 
 -- coderunner
@@ -32,8 +24,7 @@ require('code_runner').setup({
 
 	},
 
-  -- mode = "toggleterm", -- "terminal" or "popup"
-   
+  -- mode = "toggleterm", -- "terminal" or "popup" 
 })
 
 require("nvim-highlight-colors").setup {
@@ -42,4 +33,5 @@ require("nvim-highlight-colors").setup {
 	enable_tailwind = true
 }
 
-
+--lsp_lines toogle 
+require("lsp_lines").toggle()

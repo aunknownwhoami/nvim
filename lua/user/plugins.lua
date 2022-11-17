@@ -66,7 +66,6 @@ return packer.startup(function(use)
   use "b0o/SchemaStore.nvim"
   -- use "github/copilot.vim"
 
-
   use "RRethy/vim-illuminate"
   use "j-hui/fidget.nvim"
   use "lvimuser/lsp-inlayhints.nvim"
@@ -74,7 +73,7 @@ return packer.startup(function(use)
   use "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
 
   -- Completion
-   use "christianchiarulli/nvim-cmp"
+  use "christianchiarulli/nvim-cmp"
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
@@ -82,7 +81,7 @@ return packer.startup(function(use)
   use { "hrsh7th/cmp-nvim-lsp" }
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
- use {
+  use {
     "zbirenbaum/copilot.lua",
     event = { "VimEnter" },
     config = function()
@@ -91,7 +90,7 @@ return packer.startup(function(use)
       end, 100)
     end,
   }
-    use "zbirenbaum/copilot-cmp"
+  use "zbirenbaum/copilot-cmp"
   --tabnine
   use { "tzachar/cmp-tabnine", run = "./install.sh" }
 
@@ -243,7 +242,7 @@ return packer.startup(function(use)
     ft = "markdown",
   }
 
-  --auto save 
+  --auto save
   use {
     "Pocco81/auto-save.nvim",
     config = function()
@@ -253,7 +252,7 @@ return packer.startup(function(use)
       }
     end,
   }
---command auto complete 
+  --command auto complete
   use {
     "gelguy/wilder.nvim",
     config = function()
@@ -261,32 +260,31 @@ return packer.startup(function(use)
     end,
   }
 
-  --move lines 
+  --move lines
   use "fedepujol/move.nvim"
 
---multi cursor
+  --multi cursor
   use { "mg979/vim-visual-multi", branch = "master" }
 
---code runner 
+  --code runner
   use { "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" }
 
-  --live server 
---  use "manzeloth/live-server"
+  --live server
+  --  use "manzeloth/live-server"
 
-  --liveserver with live complete 
+  --liveserver with live complete
   use { "turbio/bracey.vim", run = "npm install --prefix server" }
 
-  --coloriger with rgb hexa 
+  --coloriger with rgb hexa
   use { "brenoprata10/nvim-highlight-colors" }
 
-  -- better escaping 
+  -- better escaping
   use {
     "max397574/better-escape.nvim",
     config = function()
       require("better_escape").setup()
     end,
   }
-
 
   -- Graveyard
   -- use "romgrk/nvim-treesitter-context"
