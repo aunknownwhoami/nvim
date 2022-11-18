@@ -188,14 +188,6 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   end,
 })
 
---colorizer
--- vim.api.nvim_create_autocmd({ "BufEnter" }, {
---   pattern = { "*" },
---   callback = function()
---     require("colorizer").setup()
---   end,
--- })
-
 --Runcode autocmd
 -- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 --   pattern = {
@@ -220,23 +212,13 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 --   end,
 -- })
 
--- syntax highlighting
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-  pattern = { "*" },
-  callback = function()
-    vim.cmd [[
-            :syntax on
-        ]]
-  end,
-})
-
 --highlight coloron
---vim.api.nvim_create_autocmd({ "BufEnter" }, {
---  pattern = { "*" },
---  callback = function()
---    vim.cmd [[
---            :HighlightColorsToggle
---        ]]
---  end,
---})
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+ pattern = { "*" },
+ callback = function()
+   vim.cmd [[
+           :HighlightColorsToggle
+       ]]
+ end,
+})
 

@@ -18,7 +18,6 @@ copilot.setup {
   cmp = {
     enabled = true,
     method = "getCompletionsCycling",
-  
   },
   panel = { -- no config options yet
     enabled = true,
@@ -46,9 +45,6 @@ copilot.setup {
       ["*"] = true,
     },
   },
-
-  copilot_node_command = 'node', -- Node version must be < 18
-
   -- plugin_manager_path = vim.fn.stdpath "data" .. "/site/pack/packer",
   server_opts_overrides = {
     -- trace = "verbose",
@@ -61,3 +57,9 @@ copilot.setup {
   },
 }
 
+require("copilot.suggestion").is_visible()
+require("copilot.suggestion").accept()
+require("copilot.suggestion").next()
+require("copilot.suggestion").prev()
+require("copilot.suggestion").dismiss()
+require("copilot.suggestion").toggle_auto_trigger()

@@ -83,11 +83,11 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lua"
   use {
     "zbirenbaum/copilot.lua",
-    event = { "VimEnter" },
+    event = "InsertEnter",
     config = function()
-      vim.defer_fn(function()
-        require "user.copilot"
-      end, 100)
+      vim.schedule(function()
+        require("copilot").setup()
+      end)
     end,
   }
   use "zbirenbaum/copilot-cmp"
@@ -110,6 +110,9 @@ return packer.startup(function(use)
   use {
     "abecodes/tabout.nvim",
     wants = { "nvim-treesitter" }, -- or require if not used so far
+  }
+  use {'m-demare/hlargs.nvim',
+  require('hlargs').setup()
   }
 
   -- Marks
