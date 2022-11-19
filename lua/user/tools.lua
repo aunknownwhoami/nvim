@@ -6,6 +6,11 @@ require("lspconfig")["tailwindcss"].setup {
   on_attach = on_attach,
 }
 
+--go
+require("lspconfig")["gopls"].setup {
+  on_attach = on_attach,
+}
+
 -- coderunner
 require("code_runner").setup {
   -- put here the commands by filetype

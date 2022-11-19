@@ -134,7 +134,7 @@ cmp.setup {
     }),
   },
   formatting = {
-    fields = { "kind", "abbr", "menu" },
+    fields = { "abbr", "kind", "menu" },
     format = function(entry, vim_item)
       -- Kind icons
       vim_item.kind = kind_icons[vim_item.kind]
@@ -173,7 +173,6 @@ cmp.setup {
         emoji = "Emoji",
         cmp_tabnine = "TN",
         copilot = "copilet",
-        ultisnips = "UltiSnips",
       })[entry.source.name]
       return vim_item
     end,
@@ -273,6 +272,8 @@ cmp.setup {
     completion = {
       border = "rounded",
       winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+      side_padding = 0,
+      col_offset = -3,
     },
   },
   experimental = {
