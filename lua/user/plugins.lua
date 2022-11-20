@@ -64,6 +64,10 @@ return packer.startup(function(use)
   use "SmiteshP/nvim-navic"
   use "simrat39/symbols-outline.nvim"
   use "b0o/SchemaStore.nvim"
+  use "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim"
+
+  --lsp_lines toogle
+
   -- use "github/copilot.vim"
 
   use "RRethy/vim-illuminate"
@@ -90,7 +94,13 @@ return packer.startup(function(use)
       end)
     end,
   }
-  use "zbirenbaum/copilot-cmp"
+  use {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function()
+      require("copilot_cmp").setup()
+    end,
+  }
   --tabnine
   use { "tzachar/cmp-tabnine", run = "./install.sh" }
 
@@ -111,9 +121,7 @@ return packer.startup(function(use)
     "abecodes/tabout.nvim",
     wants = { "nvim-treesitter" }, -- or require if not used so far
   }
-  use {'m-demare/hlargs.nvim',
-  require('hlargs').setup()
-  }
+  use { "m-demare/hlargs.nvim", require("hlargs").setup() }
 
   -- Marks
   use "christianchiarulli/harpoon"

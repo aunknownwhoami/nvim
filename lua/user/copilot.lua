@@ -16,8 +16,7 @@ end
 
 copilot.setup {
   cmp = {
-    enabled = true,
-    method = "getCompletionsCycling",
+    enabled = true, 
   },
   panel = { -- no config options yet
     enabled = true,
@@ -57,9 +56,9 @@ copilot.setup {
   },
 }
 
-require("copilot.suggestion").is_visible()
-require("copilot.suggestion").accept()
-require("copilot.suggestion").next()
-require("copilot.suggestion").prev()
-require("copilot.suggestion").dismiss()
-require("copilot.suggestion").toggle_auto_trigger()
+-- require("copilot.suggestion").is_visible()
+-- require("copilot.suggestion").accept()
+-- require("copilot.suggestion").next()
+-- require("copilot.suggestion").prev()
+-- require("copilot.suggestion").dismiss()
+-- require("copilot.suggestion").toggle_auto_trigger()
