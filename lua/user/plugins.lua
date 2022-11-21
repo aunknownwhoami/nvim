@@ -148,6 +148,7 @@ return packer.startup(function(use)
   use "lunarvim/onedarker.nvim"
   use "lunarvim/darkplus.nvim"
   use "folke/tokyonight.nvim"
+  use { "ellisonleao/gruvbox.nvim" }
   -- use "lunarvim/colorschemes"
 
   -- Utility
@@ -296,6 +297,7 @@ return packer.startup(function(use)
       require("better_escape").setup()
     end,
   }
+  use 'ThePrimeagen/vim-be-good'
 
   -- Graveyard
   -- use "romgrk/nvim-treesitter-context"
