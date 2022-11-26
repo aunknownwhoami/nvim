@@ -188,29 +188,6 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   end,
 })
 
---Runcode autocmd
--- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
---   pattern = {
---     "*.py",
---     "*.js",
---     "*.ts",
---     "*.java",
---     "*.c",
---     "*.cpp",
---     "*.go",
---     "*.lua",
---     "*.sh",
---     "*.html",
---     "*.css",
---     "*.php",
---     "*.asm",
---   },
---   callback = function()
---     vim.cmd [[
---             :RunCode
---         ]]
---   end,
--- })
 
 --highlight coloron
 vim.api.nvim_create_autocmd({ "BufEnter" }, {

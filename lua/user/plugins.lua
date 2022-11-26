@@ -85,22 +85,9 @@ return packer.startup(function(use)
   use { "hrsh7th/cmp-nvim-lsp" }
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
-  use {
-    "zbirenbaum/copilot.lua",
-    event = "InsertEnter",
-    config = function()
-      vim.schedule(function()
-        require("copilot").setup()
-      end)
-    end,
-  }
-  use {
-    "zbirenbaum/copilot-cmp",
-    after = { "copilot.lua" },
-    config = function()
-      require("copilot_cmp").setup()
-    end,
-  }
+  use { "zbirenbaum/copilot.lua" }
+  use {"zbirenbaum/copilot-cmp"}
+
   --tabnine
   use { "tzachar/cmp-tabnine", run = "./install.sh" }
 
@@ -278,8 +265,6 @@ return packer.startup(function(use)
   --multi cursor
   use { "mg979/vim-visual-multi", branch = "master" }
 
-  --code runner
-  use { "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" }
 
   --live server
   --  use "manzeloth/live-server"
@@ -297,7 +282,7 @@ return packer.startup(function(use)
       require("better_escape").setup()
     end,
   }
-  use 'ThePrimeagen/vim-be-good'
+  use "ThePrimeagen/vim-be-good"
 
   -- Graveyard
   -- use "romgrk/nvim-treesitter-context"

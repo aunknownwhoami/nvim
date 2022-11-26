@@ -345,15 +345,6 @@ local mappings = {
     r = { "<cmd>TSToggle rainbow<cr>", "Rainbow" },
   },
 
-  S = {
-    name = "CodeRunner",
-    f = { "<cmd>RunCode<cr>", "Run" },
-    s = { "<cmd>RunFile<cr>", "Runfile" },
-    t = { "<cmd>RunFile tab<cr>", "Run Tab" },
-    v = { "cmd>RunProject<cr>", "Run Project" },
-    p = { "<cmd>RunClose<cr>", "Run Close" },
-  },
-
   -- z = {
   --   name = "Zen",
   --   z = { "<cmd>TZAtaraxis<cr>", "Zen" },

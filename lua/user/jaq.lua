@@ -20,7 +20,12 @@ jaq_nvim.setup {
       rust = "cargo run",
       cpp = "g++ % -o $fileBase && ./$fileBase",
       go = "go run %",
-      sh = "sh %",
+      sh = "bash %",
+      c = "gcc % -o $fileBase && ./$fileBase",
+      lua = "lua %",
+      java = "javac % && java $fileBase && rm $fileBase",
+      php = "php %",
+      assembly = "nasm -f elf64 % && ld $fileBase.o -o $fileBase && ./$fileBase",
     },
 
     -- Uses internal commands such as 'source' and 'luafile'
@@ -32,7 +37,7 @@ jaq_nvim.setup {
 
   behavior = {
     -- Default type
-    default = "terminal",
+    default = "terminal",    
 
     -- Start in insert mode
     startinsert = false,
@@ -41,7 +46,7 @@ jaq_nvim.setup {
     wincmd = false,
 
     -- Auto-save files
-    autosave = false,
+    autosave = true,
   },
 
   -- UI settings
@@ -67,13 +72,13 @@ jaq_nvim.setup {
 
     terminal = {
       -- Position of terminal
-      position = "vert",
+      position = "horizontal",
 
       -- Open the terminal without line numbers
       line_no = false,
 
       -- Size of terminal
-      size = 60,
+      size = 15,
     },
   },
 }
