@@ -16,7 +16,7 @@ end
 
 copilot.setup {
   cmp = {
-    enabled = true, 
+    enabled = true,
   },
   panel = { -- no config options yet
     enabled = true,
