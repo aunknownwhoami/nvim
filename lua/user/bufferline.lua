@@ -14,9 +14,9 @@ bufferline.setup {
     -- and so changing this is NOT recommended, this is intended
     -- as an escape hatch for people who cannot bear it for whatever reason
     -- indicator_icon = "│",
-    -- indicator_icon = "▎",
-    buffer_close_icon = "",
-    -- buffer_close_icon = '',
+    indicator_selected = "▎",
+    -- buffer_close_icon = "",
+    buffer_close_icon = '',
     modified_icon = "●",
     close_icon = "",
     -- close_icon = '',
@@ -35,7 +35,7 @@ bufferline.setup {
     max_name_length = 30,
     max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
     tab_size = 21,
-    diagnostics = "nvim_lsp", -- | "nvim_lsp" | "coc",
+    diagnostics = 'nvim_lsp', -- | "nvim_lsp" | "coc",
     diagnostics_update_in_insert = false,
     -- diagnostics_indicator = function(count, level, diagnostics_dict, context)
     --   return "("..count..")"
@@ -71,23 +71,26 @@ bufferline.setup {
     --   -- add custom logic
     --   return buffer_a.modified > buffer_b.modified
     -- end
-    diagnostics_indicator = function(count, level, diagnostics_dict, context)
-      local s = " "
-      for e, n in pairs(diagnostics_dict) do
-        local sym = e == "error" and " " or (e == "warning" and " " or "")
-        s = s .. n .. sym
-      end
-      return s
-    end,
+    --lsp diagnostics
+   diagnostics_indicator = function(count, level, diagnostics_dict, context)
+    local s = " "
+    for e, n in pairs(diagnostics_dict) do
+      local sym = e == "error" and " "
+        or (e == "warning" and " " or "" )
+      s = s .. n .. sym
+    end
+    return s
+  end,
   },
+
   highlights = {
     fill = {
-      fg = { attribute = "fg", highlight = "#ff0000" },
-      bg = { attribute = "bg", highlight = "#282828" },
+     fg = { attribute = "fg", highlight = "#ff0000" },
+      bg = { attribute = "bg", highlight = "TabLine" },
     },
     background = {
       fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "#282828" },
+      bg = { attribute = "bg", highlight = "TabLine" },
     },
 
     -- buffer_selected = {
@@ -96,13 +99,13 @@ bufferline.setup {
     --    = 'none'
     --   },
     buffer_visible = {
-      fg = { attribute = "fg", highlight = "#282828" },
-      bg = { attribute = "bg", highlight = "#282828" },
+      fg = { attribute = "fg", highlight = "TabLine" },
+      bg = { attribute = "bg", highlight = "TabLine" },
     },
 
     close_button = {
-      fg = { attribute = "fg", highlight = "#282828" },
-      bg = { attribute = "bg", highlight = "#282828" },
+      fg = { attribute = "fg", highlight = "TabLine" },
+      bg = { attribute = "bg", highlight = "TabLine" },
     },
     close_button_visible = {
       fg = { attribute = "fg", highlight = "TabLine" },
@@ -130,17 +133,17 @@ bufferline.setup {
     duplicate_selected = {
       fg = { attribute = "fg", highlight = "TabLineSel" },
       bg = { attribute = "bg", highlight = "TabLineSel" },
-      italic = true,
+       sg = "italic",
     },
     duplicate_visible = {
       fg = { attribute = "fg", highlight = "TabLine" },
       bg = { attribute = "bg", highlight = "TabLine" },
-      italic = true,
+      sg = "italic",
     },
     duplicate = {
       fg = { attribute = "fg", highlight = "TabLine" },
       bg = { attribute = "bg", highlight = "TabLine" },
-      italic = true,
+       sg = "italic",
     },
 
     modified = {
@@ -157,8 +160,8 @@ bufferline.setup {
     },
 
     separator = {
-      fg = { attribute = "bg", highlight = "#282828" },
-      bg = { attribute = "bg", highlight = "#282828" },
+      fg = { attribute = "bg", highlight = "TabLine" },
+      bg = { attribute = "bg", highlight = "TabLine" },
     },
     separator_selected = {
       fg = { attribute = "bg", highlight = "Normal" },
@@ -174,3 +177,4 @@ bufferline.setup {
     },
   },
 }
+

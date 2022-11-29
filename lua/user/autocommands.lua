@@ -190,14 +190,14 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 
 
 --highlight coloron
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-  pattern = { "*" },
-  callback = function()
-    vim.cmd [[
-           :HighlightColorsToggle
-       ]]
-  end,
-})
+--vim.api.nvim_create_autocmd({ "BufEnter" }, {
+--  pattern = { "*" },
+--  callback = function()
+--    vim.cmd [[
+--           :HighlightColorsToggle
+--       ]]
+--  end,
+--})
 
 --format on save
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
