@@ -68,7 +68,7 @@ return packer.startup(function(use)
 
   --lsp_lines toogle
 
-  use "github/copilot.vim"
+  -- use "github/copilot.vim"
 
   use "RRethy/vim-illuminate"
   use "j-hui/fidget.nvim"
@@ -85,8 +85,10 @@ return packer.startup(function(use)
   use { "hrsh7th/cmp-nvim-lsp" }
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
-  use "hrsh7th/cmp-copilot"
-
+  -- use "hrsh7th/cmp-copilot"
+  --github copilot lua
+  use { "zbirenbaum/copilot.lua" }
+  use { "zbirenbaum/cmp-copilot" }
 
   --tabnine
   use { "tzachar/cmp-tabnine", run = "./install.sh" }
@@ -108,9 +110,6 @@ return packer.startup(function(use)
     "abecodes/tabout.nvim",
     wants = { "nvim-treesitter" }, -- or require if not used so far
   }
-  use { "m-demare/hlargs.nvim",
-  --require("hlargs").setup()
-  }
 
   -- Marks
   use "christianchiarulli/harpoon"
@@ -126,14 +125,7 @@ return packer.startup(function(use)
 
   -- Color
   -- use "NvChad/nvim-colorizer.lua"
-  -- use "ziontee113/color-picker.nvim"
-  use {
-    "max397574/colortils.nvim",
-    cmd = "Colortils",
-    config = function() end,
-  }
-
-  -- Colorschemes
+   -- Colorschemes
   use "lunarvim/onedarker.nvim"
   use "lunarvim/darkplus.nvim"
   use "folke/tokyonight.nvim"
@@ -266,7 +258,6 @@ return packer.startup(function(use)
 
   --multi cursor
   use { "mg979/vim-visual-multi", branch = "master" }
-
 
   --live server
   --  use "manzeloth/live-server"

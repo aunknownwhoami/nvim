@@ -8,7 +8,6 @@
 --   let g:copilot_no_tab_map = v:true
 -- ]]
 
-
 local status_ok, copilot = pcall(require, "copilot")
 if not status_ok then
   return
@@ -21,13 +20,13 @@ copilot.setup {
   panel = { -- no config options yet
     enabled = true,
     auto_refresh = true,
-  keymap = {
-    jump_prev = "[[",
-    jump_next = "]]",
-    accept = "<C-A>",
-    refresh = "gr",
-    open = "<M-CR>"
-  }
+    keymap = {
+      jump_prev = "[[",
+      jump_next = "]]",
+      accept = "<C-A>",
+      refresh = "gr",
+      open = "<M-CR>",
+    },
   },
   ft_disable = { "markdown" },
   suggestion = {
@@ -35,10 +34,10 @@ copilot.setup {
     auto_trigger = true,
     debounce = 75,
     keymap = {
-     accept = "<C-A>",
-     next = "<M-]>",
-     prev = "<M-[>",
-     dismiss = "<C-]>",
+      accept = "<C-A>",
+      next = "<M-]>",
+      prev = "<M-[>",
+      dismiss = "<C-]>",
     },
     filetypes = {
       ["*"] = true,
@@ -56,9 +55,9 @@ copilot.setup {
   },
 }
 
--- require("copilot.suggestion").is_visible()
--- require("copilot.suggestion").accept()
--- require("copilot.suggestion").next()
--- require("copilot.suggestion").prev()
--- require("copilot.suggestion").dismiss()
--- require("copilot.suggestion").toggle_auto_trigger()
+require("copilot.suggestion").is_visible()
+require("copilot.suggestion").accept()
+require("copilot.suggestion").next()
+require("copilot.suggestion").prev()
+require("copilot.suggestion").dismiss()
+require("copilot.suggestion").toggle_auto_trigger()
