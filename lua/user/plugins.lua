@@ -125,12 +125,17 @@ return packer.startup(function(use)
 
   -- Color
   -- use "NvChad/nvim-colorizer.lua"
-   -- Colorschemes
+  -- Colorschemes
   use "lunarvim/onedarker.nvim"
   use "lunarvim/darkplus.nvim"
   use "folke/tokyonight.nvim"
   use { "ellisonleao/gruvbox.nvim" }
   -- use "lunarvim/colorschemes"
+  use { "uga-rosa/ccc.nvim",
+    config = function()
+      require("ccc").setup()
+    end,
+  }
 
   -- Utility
   use "rcarriga/nvim-notify"
