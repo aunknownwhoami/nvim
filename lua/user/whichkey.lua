@@ -153,14 +153,13 @@ local mappings = {
 
   o = {
     name = "Options",
-    c = { '<cmd>lua vim.g.cmp_active=false<cr>', "Completion off" },
-    C = { '<cmd>lua vim.g.cmp_active=true<cr>', "Completion on" },
+    c = { "<cmd>lua vim.g.cmp_active=false<cr>", "Completion off" },
+    C = { "<cmd>lua vim.g.cmp_active=true<cr>", "Completion on" },
     w = { '<cmd>lua require("user.functions").toggle_option("wrap")<cr>', "Wrap" },
     r = { '<cmd>lua require("user.functions").toggle_option("relativenumber")<cr>', "Relative" },
     l = { '<cmd>lua require("user.functions").toggle_option("cursorline")<cr>', "Cursorline" },
     s = { '<cmd>lua require("user.functions").toggle_option("spell")<cr>', "Spell" },
     t = { '<cmd>lua require("user.functions").toggle_tabline()<cr>', "Tabline" },
-
   },
 
   -- s = {
@@ -213,7 +212,7 @@ local mappings = {
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
     -- f = { "<cmd>Telescope find_files<cr>", "Find files" },
-    f = {"<cmd>Telescope fd<cr>","find_files" },
+    f = { "<cmd>Telescope fd<cr>", "find_files" },
     t = { "<cmd>Telescope live_grep<cr>", "Find Text" },
     s = { "<cmd>Telescope grep_string<cr>", "Find String" },
     h = { "<cmd>Telescope help_tags<cr>", "Help" },
@@ -307,21 +306,21 @@ local mappings = {
   --   b = { "<cmd>lua require('surround').toggle_brackets()<cr>", "Brackets" },
   -- },
 
-  -- S = {
-  --   -- name = "Session",
-  --   -- s = { "<cmd>SaveSession<cr>", "Save" },
-  --   -- l = { "<cmd>LoadLastSession!<cr>", "Load Last" },
-  --   -- d = { "<cmd>LoadCurrentDirSession!<cr>", "Load Last Dir" },
-  --   -- f = { "<cmd>Telescope sessions save_current=false<cr>", "Find Session" },
-  --   name = "SnipRun",
-  --   c = { "<cmd>SnipClose<cr>", "Close" },
-  --   f = { "<cmd>%SnipRun<cr>", "Run File" },
-  --   i = { "<cmd>SnipInfo<cr>", "Info" },
-  --   m = { "<cmd>SnipReplMemoryClean<cr>", "Mem Clean" },
-  --   r = { "<cmd>SnipReset<cr>", "Reset" },
-  --   t = { "<cmd>SnipRunToggle<cr>", "Toggle" },
-  --   x = { "<cmd>SnipTerminate<cr>", "Terminate" },
-  -- },
+  S = {
+    --   -- name = "Session",
+    --   -- s = { "<cmd>SaveSession<cr>", "Save" },
+    --   -- l = { "<cmd>LoadLastSession!<cr>", "Load Last" },
+    --   -- d = { "<cmd>LoadCurrentDirSession!<cr>", "Load Last Dir" },
+    --   -- f = { "<cmd>Telescope sessions save_current=false<cr>", "Find Session" },
+    name = "SnipRun",
+    c = { "<cmd>SnipClose<cr>", "Close" },
+    f = { "<cmd>%SnipRun<cr>", "Run File" },
+    i = { "<cmd>SnipInfo<cr>", "Info" },
+    m = { "<cmd>SnipReplMemoryClean<cr>", "Mem Clean" },
+    r = { "<cmd>SnipReset<cr>", "Reset" },
+    t = { "<cmd>SnipRunToggle<cr>", "Toggle" },
+    x = { "<cmd>SnipTerminate<cr>", "Terminate" },
+  },
 
   t = {
     name = "Terminal",
@@ -364,7 +363,7 @@ local vopts = {
 }
 local vmappings = {
   ["/"] = { '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', "Comment" },
-  s = { "<esc><cmd>'<,'>SnipRun<cr>", "Run range" },
+  -- s = { "<esc><cmd>'<,'>SnipRun<cr>", "Run range" },
   -- z = { "<cmd>TZNarrow<cr>", "Narrow" },
 }
 
