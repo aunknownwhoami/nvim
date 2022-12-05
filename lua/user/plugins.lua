@@ -66,8 +66,6 @@ return packer.startup(function(use)
   use "b0o/SchemaStore.nvim"
   use "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim"
 
-  --lsp_lines toogle
-
   -- use "github/copilot.vim"
 
   use "RRethy/vim-illuminate"
@@ -77,7 +75,8 @@ return packer.startup(function(use)
   use "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
 
   -- Completion
-  use "christianchiarulli/nvim-cmp"
+  use "hrsh7th/nvim-cmp" -- completion
+  -- use "christianchiarulli/nvim-cmp"
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions

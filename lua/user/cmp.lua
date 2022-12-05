@@ -14,6 +14,7 @@ if not tabnine_status_ok then
 end
 
 
+
 local buffer_fts = {
   "markdown",
   "toml",
@@ -134,7 +135,7 @@ cmp.setup {
     }),
   },
   formatting = {
-    fields = { "abbr", "kind", "menu" },
+    fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
       -- Kind icons
       vim_item.kind = kind_icons[vim_item.kind]
@@ -165,14 +166,14 @@ cmp.setup {
 
       -- NOTE: order matters
       vim_item.menu = ({
-        nvim_lsp = "LSP",
-        nvim_lua = "nvim_lua",
-        luasnip = "Lunaship",
-        buffer = "Buffer",
-        path = "Path",
-        emoji = "Emoji",
-        cmp_tabnine = "TN",
-        copilot = "copilet",
+        nvim_lsp = "[LSP]",
+        nvim_lua = "[nvim_lua]",
+        luasnip = "[Lunaship]",
+        buffer = "[Buffer]",
+        path = "[Path]",
+        emoji = "[Emoji]",
+        cmp_tabnine = "[TN]",
+        copilot = "[copilet]",
       })[entry.source.name]
       return vim_item
     end,
@@ -243,15 +244,15 @@ cmp.setup {
   sorting = {
     priority_weight = 2,
     comparators = {
-      -- require("copilot_cmp.comparators").prioritize,
-      -- require("copilot_cmp.comparators").score,
+     -- require("copilot_cmp.comparators").prioritize,
+     -- require("copilot_cmp.comparators").score,
       compare.offset,
       compare.exact,
       -- compare.scopes,
       compare.score,
       compare.recently_used,
       compare.locality,
-      -- compare.kind,
+      compare.kind,
       compare.sort_text,
       compare.length,
       compare.order,
@@ -280,5 +281,4 @@ cmp.setup {
     ghost_text = false,
   },
 }
-
 
