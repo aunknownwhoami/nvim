@@ -13,8 +13,6 @@ if not tabnine_status_ok then
   return
 end
 
-
-
 local buffer_fts = {
   "markdown",
   "toml",
@@ -244,8 +242,8 @@ cmp.setup {
   sorting = {
     priority_weight = 2,
     comparators = {
-     -- require("copilot_cmp.comparators").prioritize,
-     -- require("copilot_cmp.comparators").score,
+      -- require("copilot_cmp.comparators").prioritize,
+      -- require("copilot_cmp.comparators").score,
       compare.offset,
       compare.exact,
       -- compare.scopes,
@@ -279,6 +277,5 @@ cmp.setup {
   },
   experimental = {
     ghost_text = false,
-  },
+  }, 
 }
-

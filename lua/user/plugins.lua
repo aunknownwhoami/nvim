@@ -124,17 +124,18 @@ return packer.startup(function(use)
 
   -- Color
   -- use "NvChad/nvim-colorizer.lua"
+  use {
+    "uga-rosa/ccc.nvim",
+    config = function()
+      require("ccc").setup()
+    end,
+  }
   -- Colorschemes
   use "lunarvim/onedarker.nvim"
   use "lunarvim/darkplus.nvim"
   use "folke/tokyonight.nvim"
   use { "ellisonleao/gruvbox.nvim" }
   -- use "lunarvim/colorschemes"
-  use { "uga-rosa/ccc.nvim",
-    config = function()
-      require("ccc").setup()
-    end,
-  }
 
   -- Utility
   use "rcarriga/nvim-notify"
@@ -269,8 +270,6 @@ return packer.startup(function(use)
   --liveserver with live complete
   use { "turbio/bracey.vim", run = "npm install --prefix server" }
 
-  --coloriger with rgb hexa
-  use { "brenoprata10/nvim-highlight-colors" }
 
   -- better escaping
   use {

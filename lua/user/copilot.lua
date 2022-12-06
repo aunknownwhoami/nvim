@@ -16,6 +16,8 @@ end
 copilot.setup {
   cmp = {
     enabled = true,
+    method = "getCompletionsCycling",
+     
   },
   panel = { -- no config options yet
     enabled = true,

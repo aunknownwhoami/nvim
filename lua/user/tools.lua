@@ -2,18 +2,6 @@ require("lspconfig")["pyright"].setup {
   on_attach = on_attach,
 }
 
-require("lspconfig")["tailwindcss"].setup {
-  on_attach = on_attach,
-}
-
-require("nvim-highlight-colors").setup {
-  render = "background", -- or 'foreground' or 'first_column'
-  enable_named_colors = true,
-  enable_tailwind = true,
-}
-
-
-
 
 --toggle lsp diagnostics
 require("toggle_lsp_diagnostics").init {
@@ -30,8 +18,4 @@ require("toggle_lsp_diagnostics").init {
   underline_diagnostics = true,
   update_in_insert = false,
   severity_sort = false,
-
-
-
 }
-
