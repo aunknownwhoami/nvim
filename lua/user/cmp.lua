@@ -52,6 +52,15 @@ vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#CA42F0" })
 vim.api.nvim_set_hl(0, "CmpItemKindEmoji", { fg = "#FDE030" })
 vim.api.nvim_set_hl(0, "CmpItemKindCrate", { fg = "#F64D00" })
 
+--pmenu color for lsp
+vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#00ffff" })
+vim.api.nvim_set_hl(0, "CmpItemAbbr", { fg = "#ffffff" })
+vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#00ffff" })
+vim.api.nvim_set_hl(0, "CmpItemKindClass", { fg = "#f08d2f" })
+vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { fg = "#fcfb0c" })
+vim.api.nvim_set_hl(0, "CmpItemKindFunction", { fg = "#ff0b01" })
+vim.api.nvim_set_hl(0, "CmpItemKindMethod", { fg = "#4a00fc" })
+
 vim.g.cmp_active = true
 
 cmp.setup {
@@ -277,5 +286,5 @@ cmp.setup {
   },
   experimental = {
     ghost_text = false,
-  }, 
+  },
 }
