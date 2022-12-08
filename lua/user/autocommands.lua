@@ -188,12 +188,24 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   end,
 })
 
---format on save
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+-- --format on save
+-- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+--   pattern = { "*" },
+--   callback = function()
+--     vim.cmd [[
+--            :lua vim.lsp.buf.format()
+--        ]]
+--   end,
+-- })
+
+--vim enter 
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
   pattern = { "*" },
   callback = function()
     vim.cmd [[
-           :lua vim.lsp.buf.format()
-       ]]
+      :CccHighlighterToggle
+    ]]
   end,
 })
+
+

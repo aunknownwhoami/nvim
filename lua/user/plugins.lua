@@ -124,12 +124,7 @@ return packer.startup(function(use)
 
   -- Color
   -- use "NvChad/nvim-colorizer.lua"
-  use {
-    "uga-rosa/ccc.nvim",
-    config = function()
-      require("ccc").setup()
-    end,
-  }
+  use {"uga-rosa/ccc.nvim"}
   -- Colorschemes
   use "lunarvim/onedarker.nvim"
   use "lunarvim/darkplus.nvim"
@@ -265,11 +260,10 @@ return packer.startup(function(use)
   use { "mg979/vim-visual-multi", branch = "master" }
 
   --live server
-  --  use "manzeloth/live-server"
+   use "manzeloth/live-server"
 
   --liveserver with live complete
   use { "turbio/bracey.vim", run = "npm install --prefix server" }
-
 
   -- better escaping
   use {
