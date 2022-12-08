@@ -199,13 +199,13 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 -- })
 
 --vim enter 
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-  pattern = { "*" },
-  callback = function()
-    vim.cmd [[
-      :CccHighlighterToggle
-    ]]
-  end,
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+ pattern = { "*" },
+ callback = function()
+   vim.cmd [[
+     :CccHighlighterToggle
+   ]]
+ end,
 })
 
 
