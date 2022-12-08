@@ -198,14 +198,4 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 --   end,
 -- })
 
---vim enter 
-vim.api.nvim_create_autocmd({ "VimEnter" }, {
- pattern = { "*" },
- callback = function()
-   vim.cmd [[
-     :CccHighlighterEnable
-   ]]
- end,
-})
-
 

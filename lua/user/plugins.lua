@@ -125,6 +125,7 @@ return packer.startup(function(use)
   -- Color
   -- use "NvChad/nvim-colorizer.lua"
   use {"uga-rosa/ccc.nvim"}
+  use "brenoprata10/nvim-highlight-colors"
   -- Colorschemes
   use "lunarvim/onedarker.nvim"
   use "lunarvim/darkplus.nvim"
@@ -274,7 +275,7 @@ return packer.startup(function(use)
   }
   use "ThePrimeagen/vim-be-good"
 
-  -- Graveyard
+    -- Graveyard
   -- use "romgrk/nvim-treesitter-context"
   -- use "mizlan/iswap.nvim"
   -- use {'christianchiarulli/nvim-ts-rainbow'}
