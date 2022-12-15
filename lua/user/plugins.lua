@@ -60,13 +60,18 @@ return packer.startup(function(use)
   use "williamboman/mason.nvim"
   use "williamboman/mason-lspconfig.nvim"
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
-  use "ray-x/lsp_signature.nvim"
+  use {
+    "ray-x/lsp_signature.nvim",
+    config = function()
+      require("lsp_signature").setup()
+    end,
+  }
   use "SmiteshP/nvim-navic"
   use "simrat39/symbols-outline.nvim"
   use "b0o/SchemaStore.nvim"
   use "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim"
 
-  -- use "github/copilot.vim"
+  use "github/copilot.vim"
 
   use "RRethy/vim-illuminate"
   use "j-hui/fidget.nvim"
@@ -84,11 +89,9 @@ return packer.startup(function(use)
   use { "hrsh7th/cmp-nvim-lsp" }
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
-  -- use "hrsh7th/cmp-copilot"
+  use "hrsh7th/cmp-copilot"
   --github copilot lua
-  use { "zbirenbaum/copilot.lua" }
-  use { "zbirenbaum/cmp-copilot" }
-
+  use {"zbirenbaum/copilot.lua"}
   --tabnine
   use { "tzachar/cmp-tabnine", run = "./install.sh" }
 
@@ -124,7 +127,7 @@ return packer.startup(function(use)
 
   -- Color
   -- use "NvChad/nvim-colorizer.lua"
-  use {"uga-rosa/ccc.nvim"}
+  use { "uga-rosa/ccc.nvim" }
   use "brenoprata10/nvim-highlight-colors"
   -- Colorschemes
   use "lunarvim/onedarker.nvim"
@@ -261,7 +264,7 @@ return packer.startup(function(use)
   use { "mg979/vim-visual-multi", branch = "master" }
 
   --live server
-   use "manzeloth/live-server"
+  use "manzeloth/live-server"
 
   --liveserver with live complete
   use { "turbio/bracey.vim", run = "npm install --prefix server" }
@@ -274,8 +277,17 @@ return packer.startup(function(use)
     end,
   }
   use "ThePrimeagen/vim-be-good"
+  use {
+    "kevinhwang91/rnvimr",
+    cmd = "RnvimrToggle",
+    config = function()
+      vim.g.rnvimr_draw_border = 1
+      vim.g.rnvimr_pick_enable = 1
+      vim.g.rnvimr_bw_enable = 1
+    end,
+  }
 
-    -- Graveyard
+  -- Graveyard
   -- use "romgrk/nvim-treesitter-context"
   -- use "mizlan/iswap.nvim"
   -- use {'christianchiarulli/nvim-ts-rainbow'}
