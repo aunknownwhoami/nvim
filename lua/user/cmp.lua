@@ -52,10 +52,12 @@ vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#CA42F0" })
 vim.api.nvim_set_hl(0, "CmpItemKindEmoji", { fg = "#FDE030" })
 vim.api.nvim_set_hl(0, "CmpItemKindCrate", { fg = "#F64D00" })
 
---pmenu color for lsp
-vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#ffa604" })
+--pmenu colors for cmp
+vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#ffff01" })
 vim.api.nvim_set_hl(0, "CmpItemAbbr", { fg = "#ffffff" })
 vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#00ffff" })
+
+
 
 vim.g.cmp_active = true
 
@@ -138,7 +140,7 @@ cmp.setup {
     }),
   },
   formatting = {
-    fields = { "kind", "abbr", "menu" },
+    fields = { "abbr", "kind", "menu" },
     format = function(entry, vim_item)
       -- Kind icons
       vim_item.kind = kind_icons[vim_item.kind]
@@ -177,6 +179,9 @@ cmp.setup {
         emoji = "[Emoji]",
         cmp_tabnine = "[TN]",
         copilot = "[copilet]",
+        nvim_treesitter = "[TS]",
+        latex_symbols = "[Latex]",
+        spell = "[Spell]",
       })[entry.source.name]
       return vim_item
     end,
@@ -270,14 +275,16 @@ cmp.setup {
   window = {
     -- documentation = false,
     documentation = {
-      border = "rounded",
-      winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+      border = "none",
+      -- winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+       winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
     },
     completion = {
-      border = "rounded",
-      winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
-      side_padding = 0,
-      col_offset = -3,
+      border = "none",
+      -- winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+       winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+      side_padding = 1,
+      col_offset = -2,
     },
   },
   experimental = {
