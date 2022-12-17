@@ -71,7 +71,7 @@ return packer.startup(function(use)
   use "b0o/SchemaStore.nvim"
   use "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim"
 
-  use "github/copilot.vim"
+  -- use "github/copilot.vim"
 
   use "RRethy/vim-illuminate"
   use "j-hui/fidget.nvim"
@@ -89,9 +89,10 @@ return packer.startup(function(use)
   use { "hrsh7th/cmp-nvim-lsp" }
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
-  use "hrsh7th/cmp-copilot"
+  -- use "hrsh7th/cmp-copilot"
   --github copilot lua
   use {"zbirenbaum/copilot.lua"}
+  
   --tabnine
   use { "tzachar/cmp-tabnine", run = "./install.sh" }
 
