@@ -95,17 +95,18 @@ cmp.setup {
     }),
   },
   formatting = {
-    fields = { "kind", "abbr", "menu" },
+    fields = { "abbr", "kind", "menu" },
     format = function(entry, vim_item)
       -- Kind icons
-      vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-      -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+      -- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+      vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
         nvim_lsp = "[LSP]",
         luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
-        copilot = "[copilot]"
+        copilot = "[copilot]",
+        cmp_tabnine = "[TabNine]",
       })[entry.source.name]
       return vim_item
     end,
@@ -115,7 +116,8 @@ cmp.setup {
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
-    { name = "copilot"}
+    { name = "copilot"},
+    { name = "cmp_tabnine" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
@@ -124,10 +126,14 @@ cmp.setup {
   window = {
     documentation = {
       border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+  },
+    completion = {
+      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+      -- border = "none",
     },
   },
   experimental = {
     ghost_text = false,
-    native_menu = false,
+    -- native_menu = true,
   },
 }

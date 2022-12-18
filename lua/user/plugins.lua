@@ -118,8 +118,6 @@ return packer.startup(function(use)
 	use("mfussenegger/nvim-dap")
 	use("rcarriga/nvim-dap-ui") -- UI for DAP
 
-	use("christianchiarulli/lir.nvim")
-
 	-- Session
 	use("rmagatti/auto-session")
 	use("rmagatti/session-lens")
@@ -157,7 +155,15 @@ return packer.startup(function(use)
 	--multi cursor
 	use({ "mg979/vim-visual-multi", branch = "master" })
 	use({ "michaelb/sniprun", run = "bash ./install.sh" })
-	use({"rcarriga/nvim-notify"})
+	use({ "rcarriga/nvim-notify" })
+	use({ "kevinhwang91/rnvimr" })
+	use({ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim" })
+  use ({
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      require("lsp_lines").setup()
+    end,
+  })
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

@@ -32,8 +32,8 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<C-l>", ":bnext<CR>", opts)
+keymap("n", "<C-h>", ":bprevious<CR>", opts)
 
 -- Move text up and down
 -- keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
@@ -42,7 +42,7 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 -- Insert --
 -- Press jk fast to exit insert mode 
 keymap("i", "jk", "<ESC>", opts)
-keymap("i", "kj", "<ESC>", opts)
+-- keymap("i", "kj", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -70,6 +70,5 @@ keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("n", "Q", "<cmd>Bdelete!<CR>", opts)
 keymap("n", "<C-p>", "<cmd>Telescope projects<cr>", opts)
 keymap("n", "<C-t>", "<cmd>lua vim.lsp.buf.document_symbol()<cr>", opts)
-keymap("n", "-", ":lua require'lir.float'.toggle()<cr>", opts)
-keymap("n", "<m-v>", "<cmd>lua require('lsp_lines').toggle()<cr>", opts)
-keymap("n", "<c-l>", "<cmd>lua vim.lsp.codelens.run()<cr>", opts)
+keymap("n", "-", ":RnvimrToggle<cr>", opts)
+keymap("n", "<A-v>", "<cmd>lua require('lsp_lines').toggle()<cr>", opts)
