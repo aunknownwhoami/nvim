@@ -107,6 +107,7 @@ cmp.setup {
         path = "[Path]",
         copilot = "[copilot]",
         cmp_tabnine = "[TabNine]",
+        emoji = "[Emoji]",
       })[entry.source.name]
       return vim_item
     end,
@@ -118,6 +119,7 @@ cmp.setup {
     { name = "path" },
     { name = "copilot"},
     { name = "cmp_tabnine" },
+    { name = "emoji" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
