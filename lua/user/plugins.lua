@@ -158,12 +158,19 @@ return packer.startup(function(use)
 	use({ "rcarriga/nvim-notify" })
 	use({ "kevinhwang91/rnvimr" })
 	use({ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim" })
-  use ({
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    config = function()
-      require("lsp_lines").setup()
-    end,
-  })
+	use({
+		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+		config = function()
+			require("lsp_lines").setup()
+		end,
+	})
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		ft = "markdown",
+	})
+	use({ "turbio/bracey.vim", run = "npm install --prefix server" })
+	use({ "ThePrimeagen/vim-be-good" })
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
