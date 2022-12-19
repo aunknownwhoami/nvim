@@ -37,10 +37,10 @@ jaq_nvim.setup {
 
   behavior = {
     -- Default type
-    default = "terminal",    
+    default = "terminal",
 
     -- Start in insert mode
-    startinsert = false,
+    startinsert = true,
 
     -- Use `wincmd p` on startup
     wincmd = false,

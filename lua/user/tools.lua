@@ -1,10 +1,10 @@
 require("lspconfig")["pyright"].setup {
-  on_attach = on_attach,
+  -- on_attach = on_attach,
 }
 
 --tailwindcss 
 require("lspconfig")["tailwindcss"].setup {
-  on_attach = on_attach,
+  -- on_attach = on_attach,
 }
 
 --toggle lsp diagnostics
