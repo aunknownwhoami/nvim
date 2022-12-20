@@ -171,6 +171,17 @@ return packer.startup(function(use)
 	})
 	use({ "turbio/bracey.vim", run = "npm install --prefix server" })
 	use({ "ThePrimeagen/vim-be-good" })
+	use({
+		"jackMort/ChatGPT.nvim",
+		config = function()
+			require("chatgpt").setup({
+				-- optional configuration
+			})
+		end,
+		requires = {
+			"MunifTanjim/nui.nvim",
+		},
+	})
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
