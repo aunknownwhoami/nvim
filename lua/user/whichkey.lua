@@ -133,6 +133,13 @@ local mappings = {
   -- ["z"] = { "<cmd>ZenMode<cr>", "Zen" },
   ["gy"] = "Link",
 
+   C = {
+    name = "ChatGPT",
+    c = { "<cmd>ChatGPT<cr>", "Chat" },
+    t = { "<cmd>ChatGPTActAs<cr>", "chatgptactas" },
+    s = { "<cmd>ChatGPTEditWithInstructions<cr>", "chatgpt code" },
+  },
+
   B = {
     name = "Browse",
     i = { "<cmd>BrowseInputSearch<cr>", "Input Search" },

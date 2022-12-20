@@ -278,6 +278,17 @@ return packer.startup(function(use)
     end,
   }
   use "ThePrimeagen/vim-be-good"
+  use({
+  "jackMort/ChatGPT.nvim",
+    config = function()
+      require("chatgpt").setup({
+        -- optional configuration
+      })
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim"
+    }
+})
   -- Graveyard
   -- use "romgrk/nvim-treesitter-context"
   -- use "mizlan/iswap.nvim"
