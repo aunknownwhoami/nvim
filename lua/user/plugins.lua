@@ -92,6 +92,13 @@ return packer.startup(function(use)
   -- use "hrsh7th/cmp-copilot"
   --github copilot lua
   use {"zbirenbaum/copilot.lua"}
+  use {
+  "zbirenbaum/copilot-cmp",
+  after = { "copilot.lua" },
+  config = function ()
+    require("copilot_cmp").setup()
+  end
+}
   
   --tabnine
   use { "tzachar/cmp-tabnine", run = "./install.sh" }
