@@ -30,4 +30,4 @@ require('nvim-highlight-colors').setup {
     enable_tailwind = true
 }
 
-
+require("copilot.suggestion").toggle_auto_trigger()
