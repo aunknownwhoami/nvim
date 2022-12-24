@@ -36,10 +36,10 @@ dapui.setup {
         -- Elements can be strings or table with id and size keys.
         { id = "scopes", size = 0.25 },
         "breakpoints",
-        -- "stacks",
-        -- "watches",
+        "stacks",
+        "watches",
       },
-      size = 40, -- 40 columns
+      size = 30, -- 40 columns
       position = "right",
     },
     {
@@ -49,6 +49,22 @@ dapui.setup {
       },
       size = 0.25, -- 25% of total lines
       position = "bottom",
+    },
+  },
+  controls = {
+    -- Requires Neovim nightly (or 0.8 when released)
+    enabled = true,
+    -- Display controls in this element
+    element = "repl",
+    icons = {
+      pause = "",
+      play = "",
+      step_into = "",
+      step_over = "",
+      step_out = "",
+      step_back = "",
+      run_last = "",
+      terminate = "",
     },
   },
   floating = {
@@ -78,3 +94,37 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close {}
 end
+
+-- Dap config for dap-python
+local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
+pcall(function()
+  require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
+  -- require("dap-python").setup("python")
+end)
+
+pcall(function()
+  require("dap-python").test_runner = "pytest"
+end)
+
+--dap config for c/c++ (lldb)
+  dap.adapters.lldb = {
+    type = 'executable',
+    -- absolute path is important here, otherwise the argument in the `runInTerminal` request will default to $CWD/lldb-vscode
+    command = '/usr/bin/lldb-vscode',
+    name = "lldb"
+  }
+  dap.configurations.cpp = {
+    {
+      name = "Launch",
+      type = "lldb",
+      request = "launch",
+      program = function()
+        return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+      end,
+      cwd = '${workspaceFolder}',
+      stopOnEntry = false,
+      args = {},
+      runInTerminal = true,
+    },
+}
+
