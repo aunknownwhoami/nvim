@@ -14,14 +14,18 @@ null_ls.setup {
   debug = true,
   sources = {
     formatting.prettier.with {
-      extra_filetypes = { "toml", "solidity", "python" },
+      extra_filetypes = { "toml", "solidity" },
       extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
     },
-    formatting.black.with { extra_args = { "--fast" } },
+    formatting.black.with {
+      extra_filetypes = { "python" },
+      extra_args = { "--fast" },
+    },
     formatting.stylua,
     formatting.shfmt,
     formatting.google_java_format,
-    -- diagnostics.flake8,
+    diagnostics.flake8,
+    diagnostics.cpplint,
     diagnostics.shellcheck,
   },
 }
@@ -31,7 +35,7 @@ local unwrap = {
   filetypes = { "rust" },
   generator = {
     fn = function(params)
-     diagnostics = {}
+      diagnostics = {}
       -- sources have access to a params object
       -- containing info about the current file and editor state
       for i, line in ipairs(params.content) do

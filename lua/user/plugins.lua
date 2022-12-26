@@ -91,22 +91,22 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lua"
   -- use "hrsh7th/cmp-copilot"
   --github copilot lua
- use {
-  "zbirenbaum/copilot.lua",
-  event = "VimEnter",
-  config = function()
-    vim.defer_fn(function()
-      require("copilot").setup()
-    end, 100)
-  end,
-}
   use {
-  "zbirenbaum/copilot-cmp",
-  after = { "copilot.lua" },
-  config = function ()
-    require("copilot_cmp").setup()
-  end
-}
+    "zbirenbaum/copilot.lua",
+    event = { "VimEnter" },
+    config = function()
+      vim.defer_fn(function()
+        require "user.copilot"
+      end, 100)
+    end,
+  }
+  use {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function()
+      require("copilot_cmp").setup()
+    end,
+  }
   --tabnine
   use { "tzachar/cmp-tabnine", run = "./install.sh" }
 
@@ -165,7 +165,7 @@ return packer.startup(function(use)
   -- Debugging
   use "mfussenegger/nvim-dap"
   use "rcarriga/nvim-dap-ui"
-  use 'mfussenegger/nvim-dap-python'
+  use "mfussenegger/nvim-dap-python"
   use "theHamsta/nvim-dap-virtual-text"
   -- use "Pocco81/DAPInstall.nvim"
 
@@ -293,17 +293,17 @@ return packer.startup(function(use)
     end,
   }
   use "ThePrimeagen/vim-be-good"
-  use({
-  "jackMort/ChatGPT.nvim",
+  use {
+    "jackMort/ChatGPT.nvim",
     config = function()
-      require("chatgpt").setup({
+      require("chatgpt").setup {
         -- optional configuration
-      })
+      }
     end,
     requires = {
-      "MunifTanjim/nui.nvim"
-    }
-})
+      "MunifTanjim/nui.nvim",
+    },
+  }
   -- Graveyard
   -- use "romgrk/nvim-treesitter-context"
   -- use "mizlan/iswap.nvim"

@@ -1,8 +1,4 @@
-require("lspconfig")["pyright"].setup {
-  on_attach = on_attach,
-}
-
---tailwindcss 
+--tailwindcss
 require("lspconfig")["tailwindcss"].setup {
   on_attach = on_attach,
 }
@@ -24,10 +20,10 @@ require("toggle_lsp_diagnostics").init {
   severity_sort = false,
 }
 
-require('nvim-highlight-colors').setup {
-  render = 'background', -- or 'foreground' or 'first_column'
-    enable_named_colors = true,
-    enable_tailwind = true
+require("nvim-highlight-colors").setup {
+  render = "background", -- or 'foreground' or 'first_column'
+  enable_named_colors = true,
+  enable_tailwind = true,
 }
 
 require("copilot.suggestion").toggle_auto_trigger()

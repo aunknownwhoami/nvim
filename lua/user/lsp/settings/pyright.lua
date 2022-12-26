@@ -1,14 +1,11 @@
+--mason-lsp-settings-pyright
 return {
-  cmd = { "py" },
   settings = {
     python = {
       analysis = {
-        typeCheckingMode = "basic",
+        autoSearchPaths = true,
         diagnosticMode = "workspace",
-        inlayHints = {
-          variableTypes = true,
-          functionReturnTypes = true,
-        },
+        useLibraryCodeForTypes = true,
       },
     },
   },

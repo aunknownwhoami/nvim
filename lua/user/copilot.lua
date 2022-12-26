@@ -1,6 +1,6 @@
 -- For copilot.vim
 -- vim.g.copilot_filetypes = {
---   ["*"] = true,
+--   ["*"] = false,
 -- }
 
 -- vim.cmd [[
@@ -17,9 +17,8 @@ copilot.setup {
   cmp = {
     enabled = true,
     method = "getCompletionsCycling",
-     
   },
-  panel = { -- no config options yet
+ panel = { -- no config options yet
     enabled = true,
     auto_refresh = true,
     keymap = {
@@ -41,7 +40,7 @@ copilot.setup {
       prev = "<M-[>",
       dismiss = "<C-]>",
     },
-    filetypes = {
+      filetypes = {
       ["*"] = true,
     },
   },
@@ -56,10 +55,3 @@ copilot.setup {
     },
   },
 }
-
-require("copilot.suggestion").is_visible()
-require("copilot.suggestion").accept()
-require("copilot.suggestion").next()
-require("copilot.suggestion").prev()
-require("copilot.suggestion").dismiss()
-require("copilot.suggestion").toggle_auto_trigger()
