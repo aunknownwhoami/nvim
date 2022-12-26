@@ -243,6 +243,19 @@ local plugins = {
       require("copilot_cmp").setup()
     end,
   },
+  {
+    "max397574/better-escape.nvim",
+    config = function()
+      require("better_escape").setup()
+    end,
+  },
+  {
+    "Pocco81/auto-save.nvim",
+    config = function()
+      require("auto-save").setup {
+      }
+    end,
+  },
 }
 
 local opts = {

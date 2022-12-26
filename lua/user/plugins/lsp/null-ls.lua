@@ -8,21 +8,26 @@ local M = {}
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
 local formatting = null_ls.builtins.formatting
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
--- local diagnostics = null_ls.builtins.diagnostics
+local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup {
-  debug = false,
+  debug = true,
   sources = {
     formatting.prettier.with {
-      extra_filetypes = { "toml", "solidity" },
+      extra_filetypes = { "toml", "solidity", "html", "css", "scss", "json", "yaml", "markdown" },
       extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
     },
-    formatting.gofumpt,
-    formatting.autopep8,
+    -- formatting.gofumpt,
+    formatting.black.with {
+      filetypes = { "python" },
+    },
     formatting.stylua,
     formatting.clang_format.with {
       filetypes = { "cpp", "c" },
     },
+    --lints 
+    diagnostics.flake8,
+    diagnostics.shellcheck,
   },
 }
 
