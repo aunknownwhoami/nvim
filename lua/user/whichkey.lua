@@ -133,7 +133,7 @@ local mappings = {
   -- ["z"] = { "<cmd>ZenMode<cr>", "Zen" },
   ["gy"] = "Link",
 
-   C = {
+  C = {
     name = "ChatGPT",
     c = { "<cmd>ChatGPT<cr>", "Chat" },
     t = { "<cmd>ChatGPTActAs<cr>", "chatgptactas" },
@@ -149,13 +149,13 @@ local mappings = {
     m = { "<cmd>BrowseMdnSearch<cr>", "Mdn" },
   },
 
-  p = {
-    name = "Packer",
+  L = {
+    name = "Lazy",
     c = { "<cmd>PackerCompile<cr>", "Compile" },
-    i = { "<cmd>PackerInstall<cr>", "Install" },
-    s = { "<cmd>PackerSync<cr>", "Sync" },
-    S = { "<cmd>PackerStatus<cr>", "Status" },
-    u = { "<cmd>PackerUpdate<cr>", "Update" },
+    i = { "<cmd>Lazy install<cr>", "Install" },
+    s = { "<cmd>Lazy sync<cr>", "Sync" },
+    S = { "<cmd>Lazy check<cr>", "Status" },
+    u = { "<cmd>Lazy Update<cr>", "Update" },
   },
 
   o = {

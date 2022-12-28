@@ -279,3 +279,24 @@ cmp.setup {
   },
 }
 
+cmp.setup.cmdline(":", {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = "cmdline" },
+  },
+  window = {
+    completion = cmp.config.window.bordered {
+      border = "rounded",
+      winhighlight = "Normal:Normal,FloatBorder:CmpCompletionBorder,CursorLine:CmpCursorLine,Search:Search",
+      col_offset = -3,
+      side_padding = 1,
+    },
+  },
+  formatting = {
+    -- fields = { 'abbr' },
+    format = function(_, vim_item)
+      vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
+      return vim_item
+    end,
+  },
+})
