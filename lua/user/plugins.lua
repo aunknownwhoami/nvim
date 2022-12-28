@@ -1,97 +1,74 @@
-local fn = vim.fn
-
--- Automatically install packer
-local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
----@diagnostic disable-next-line: missing-parameter
-if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system {
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
     "git",
     "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
-  }
-  print "Installing packer close and reopen Neovim..."
-  vim.cmd [[packadd packer.nvim]]
+    "--filter=blob:none",
+    "--single-branch",
+    "https://github.com/folke/lazy.nvim.git",
+    lazypath,
+  })
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]]
-
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-  return
-end
-
--- Have packer use a popup window
-packer.init {
-  -- snapshot = "july-24",
-  snapshot_path = fn.stdpath "config" .. "/snapshots",
-  max_jobs = 50,
-  display = {
-    open_fn = function()
-      return require("packer.util").float { border = "rounded" }
-    end,
-    prompt_border = "rounded", -- Border style of prompt popups.
-  },
-}
+vim.opt.runtimepath:prepend(lazypath)
 
 -- Install your plugins here
-return packer.startup(function(use)
+local plugins = {
   -- Plugin Mangager
-  use "wbthomason/packer.nvim" -- Have packer manage itself
+  {
+    "folke/lazy.nvim",
+  }, -- Plugin Manager
 
   -- Lua Development
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-  use "nvim-lua/popup.nvim"
-  use "christianchiarulli/lua-dev.nvim"
+  { "nvim-lua/plenary.nvim"}, -- Useful lua functions used ny lots of plugins
+  { "nvim-lua/popup.nvim"},
+  { "christianchiarulli/lua-dev.nvim"},
   -- use "folke/lua-dev.nvim"
 
   -- LSP
-  use "neovim/nvim-lspconfig" -- enable LSP
+  { "neovim/nvim-lspconfig", -- enable LSP
   -- use "williamboman/nvim-lsp-installer" -- simple to use language server installer
-  use "williamboman/mason.nvim"
-  use "williamboman/mason-lspconfig.nvim"
-  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
-  use {
+   "williamboman/mason.nvim",
+   "williamboman/mason-lspconfig.nvim",
+   "jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
+   {
     "ray-x/lsp_signature.nvim",
     config = function()
       require("lsp_signature").setup()
     end,
-  }
-  use "SmiteshP/nvim-navic"
-  use "simrat39/symbols-outline.nvim"
-  use "b0o/SchemaStore.nvim"
-  use "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim"
-
+  },
+  },
+  {
+   "SmiteshP/nvim-navic",
+   "simrat39/symbols-outline.nvim",
+   "b0o/SchemaStore.nvim",
+   "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
+    "Maan2003/lsp_lines.nvim",
+},
   -- use "github/copilot.vim"
 
-  use "RRethy/vim-illuminate"
-  use "j-hui/fidget.nvim"
-  use "lvimuser/lsp-inlayhints.nvim"
-  use "simrat39/inlay-hints.nvim"
-  use "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
-
+  {
+   "RRethy/vim-illuminate",
+   "j-hui/fidget.nvim",
+   "lvimuser/lsp-inlayhints.nvim",
+   "simrat39/inlay-hints.nvim",
+  -- "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+},
+{
   -- Completion
-  use "hrsh7th/nvim-cmp" -- completion
+   "hrsh7th/nvim-cmp", -- completion
   -- use "christianchiarulli/nvim-cmp"
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use { "hrsh7th/cmp-nvim-lsp" }
-  use "hrsh7th/cmp-emoji"
-  use "hrsh7th/cmp-nvim-lua"
-  -- use "hrsh7th/cmp-copilot"
+   "hrsh7th/cmp-buffer", -- buffer completions
+   "hrsh7th/cmp-path", -- path completions
+   "hrsh7th/cmp-cmdline", -- cmdline completions
+   "saadparwaiz1/cmp_luasnip", -- snippet completions
+    "hrsh7th/cmp-nvim-lsp", 
+   "hrsh7th/cmp-emoji",
+   "hrsh7th/cmp-nvim-lua",
+ -- use "hrsh7th/cmp-copilot"
+ },
   --github copilot lua
-  use {
+  {
     "zbirenbaum/copilot.lua",
     event = { "VimEnter" },
     config = function()
@@ -99,164 +76,164 @@ return packer.startup(function(use)
         require "user.copilot"
       end, 100)
     end,
-  }
-  use {
+  },
+  {
     "zbirenbaum/copilot-cmp",
     after = { "copilot.lua" },
     config = function()
       require("copilot_cmp").setup()
     end,
-  }
+  },
   --tabnine
-  use { "tzachar/cmp-tabnine", run = "./install.sh" }
-
-  use "L3MON4D3/LuaSnip" --snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
-
+ { "tzachar/cmp-tabnine", build = "./install.sh" },
+  {
+   "L3MON4D3/LuaSnip", --snippet engine
+   "rafamadriz/friendly-snippets", -- a bunch of snippets to use
+},
+{
   -- Syntax/Treesitter
-  use "nvim-treesitter/nvim-treesitter"
-  use "JoosepAlviste/nvim-ts-context-commentstring"
-  use "p00f/nvim-ts-rainbow"
-  use "nvim-treesitter/playground"
-  use "windwp/nvim-ts-autotag"
-  use "nvim-treesitter/nvim-treesitter-textobjects"
+   "nvim-treesitter/nvim-treesitter",
+   "JoosepAlviste/nvim-ts-context-commentstring",
+   "p00f/nvim-ts-rainbow",
+   "nvim-treesitter/playground",
+   "windwp/nvim-ts-autotag",
+   "nvim-treesitter/nvim-treesitter-textobjects",
   -- use "wellle/targets.vim"
   -- use "RRethy/nvim-treesitter-textsubjects"
-  use "kylechui/nvim-surround"
-  use {
+   "kylechui/nvim-surround",
+   {
     "abecodes/tabout.nvim",
     wants = { "nvim-treesitter" }, -- or require if not used so far
   }
-
+},
+{
   -- Marks
-  use "christianchiarulli/harpoon"
-  use "MattesGroeger/vim-bookmarks"
-
+   "christianchiarulli/harpoon",
+   "MattesGroeger/vim-bookmarks",
   -- Fuzzy Finder/Telescope
-  use "nvim-telescope/telescope.nvim"
-  use "nvim-telescope/telescope-media-files.nvim"
-  use "tom-anders/telescope-vim-bookmarks.nvim"
-
+   "nvim-telescope/telescope.nvim",
+   "nvim-telescope/telescope-media-files.nvim",
+   "tom-anders/telescope-vim-bookmarks.nvim",
   -- Note Taking
-  use "mickael-menu/zk-nvim"
-
+  "mickael-menu/zk-nvim",
   -- Color
   -- use "NvChad/nvim-colorizer.lua"
-  use { "uga-rosa/ccc.nvim" }
-  use "brenoprata10/nvim-highlight-colors"
+  "uga-rosa/ccc.nvim",
+  "brenoprata10/nvim-highlight-colors",
   -- Colorschemes
-  use "lunarvim/onedarker.nvim"
-  use "lunarvim/darkplus.nvim"
-  use "folke/tokyonight.nvim"
-  use { "ellisonleao/gruvbox.nvim" }
+  "lunarvim/onedarker.nvim",
+  "lunarvim/darkplus.nvim",
+  "folke/tokyonight.nvim",
+  "ellisonleao/gruvbox.nvim",
   -- use "lunarvim/colorschemes"
-
   -- Utility
-  use "rcarriga/nvim-notify"
-  use "stevearc/dressing.nvim"
-  use "ghillb/cybu.nvim"
-  use "moll/vim-bbye"
-  use "lewis6991/impatient.nvim"
-  use "lalitmee/browse.nvim"
-
+  "rcarriga/nvim-notify",
+  "stevearc/dressing.nvim",
+  "ghillb/cybu.nvim",
+  "moll/vim-bbye",
+  "lewis6991/impatient.nvim",
+  "lalitmee/browse.nvim",
   -- Icon
-  use "kyazdani42/nvim-web-devicons"
-
+  "kyazdani42/nvim-web-devicons",
+  },
+  {
   -- Debugging
-  use "mfussenegger/nvim-dap"
-  use "rcarriga/nvim-dap-ui"
-  use "mfussenegger/nvim-dap-python"
-  use "theHamsta/nvim-dap-virtual-text"
+  "mfussenegger/nvim-dap",
+  "rcarriga/nvim-dap-ui",
+  "mfussenegger/nvim-dap-python",
+  "theHamsta/nvim-dap-virtual-text",
   -- use "Pocco81/DAPInstall.nvim"
 
   -- Tabline
-  use "akinsho/bufferline.nvim"
-  use "tiagovla/scope.nvim"
+  "akinsho/bufferline.nvim",
+  "tiagovla/scope.nvim",
 
   -- Statusline
-  use "christianchiarulli/lualine.nvim"
+  "christianchiarulli/lualine.nvim",
 
   -- Startup
-  use "goolord/alpha-nvim"
+  "goolord/alpha-nvim",
 
   -- Indent
-  use "lukas-reineke/indent-blankline.nvim"
+  "lukas-reineke/indent-blankline.nvim",
 
   -- File Explorer
-  use "kyazdani42/nvim-tree.lua"
-  use "christianchiarulli/lir.nvim"
+  "kyazdani42/nvim-tree.lua",
+  "christianchiarulli/lir.nvim",
 
   -- Comment
-  use "numToStr/Comment.nvim"
-  use "folke/todo-comments.nvim"
+  "numToStr/Comment.nvim",
+  "folke/todo-comments.nvim",
 
   -- Terminal
-  use "akinsho/toggleterm.nvim"
+  "akinsho/toggleterm.nvim",
 
   -- Project
-  use "ahmedkhalf/project.nvim"
-  use "windwp/nvim-spectre"
-
+  "ahmedkhalf/project.nvim",
+  "windwp/nvim-spectre",
+},
+{
   -- Session
-  use "rmagatti/auto-session"
-  use "rmagatti/session-lens"
+  "rmagatti/auto-session",
+  "rmagatti/session-lens",
 
   -- Quickfix
-  use "kevinhwang91/nvim-bqf"
+  "kevinhwang91/nvim-bqf",
 
   -- Code Runner
-  use "is0n/jaq-nvim"
-  use {
+  "is0n/jaq-nvim",
+  },
+  {
     "0x100101/lab.nvim",
-    run = "cd js && npm ci",
-  }
-
+    build = "cd js && npm ci",
+  },
+  {
   -- Git
-  use "lewis6991/gitsigns.nvim"
-  use "f-person/git-blame.nvim"
-  use "ruifm/gitlinker.nvim"
-  use "mattn/vim-gist"
-  use "mattn/webapi-vim"
+  "lewis6991/gitsigns.nvim",
+  "f-person/git-blame.nvim",
+  "ruifm/gitlinker.nvim",
+  "mattn/vim-gist",
+  "mattn/webapi-vim",
 
   -- Github
-  use "pwntester/octo.nvim"
+  "pwntester/octo.nvim",
 
   -- Editing Support
-  use "windwp/nvim-autopairs"
-  use "monaqa/dial.nvim"
-  use "nacro90/numb.nvim"
-  use "andymass/vim-matchup"
-  use "folke/zen-mode.nvim"
+  "windwp/nvim-autopairs",
+  "monaqa/dial.nvim",
+  "nacro90/numb.nvim",
+  "andymass/vim-matchup",
+  "folke/zen-mode.nvim",
   -- use "Pocco81/true-zen.nvim"
-  use "karb94/neoscroll.nvim"
-  use "junegunn/vim-slash"
+  "karb94/neoscroll.nvim",
+  "junegunn/vim-slash",
 
   -- Motion
-  use "phaazon/hop.nvim"
+  "phaazon/hop.nvim",
   -- use "jinh0/eyeliner.nvim"
 
   -- Keybinding
-  use "folke/which-key.nvim"
+  "folke/which-key.nvim",
 
   -- Java
-  use "mfussenegger/nvim-jdtls"
-
+  "mfussenegger/nvim-jdtls",
+},
   -- Rust
-  use { "christianchiarulli/rust-tools.nvim", branch = "modularize_and_inlay_rewrite" }
-  use "Saecki/crates.nvim"
+  { "christianchiarulli/rust-tools.nvim", branch = "modularize_and_inlay_rewrite" },
+  {  "Saecki/crates.nvim" },
 
   -- Typescript TODO: set this up, also add keybinds to ftplugin
-  use "jose-elias-alvarez/typescript.nvim"
+  { "jose-elias-alvarez/typescript.nvim"},
 
   -- Markdown
-  use {
+   {
     "iamcco/markdown-preview.nvim",
-    run = "cd app && npm install",
+    build = "cd app && npm install",
     ft = "markdown",
-  }
+  },
 
   --auto save
-  use {
+  {
     "Pocco81/auto-save.nvim",
     config = function()
       require("auto-save").setup {
@@ -264,52 +241,51 @@ return packer.startup(function(use)
         -- or just leave it empty :)
       }
     end,
-  }
+  },
   --command auto complete
-  use {
+  {
     "gelguy/wilder.nvim",
     config = function()
       -- config goes here
     end,
-  }
+  },
 
   --move lines
-  use "fedepujol/move.nvim"
+  {"fedepujol/move.nvim"},
 
   --multi cursor
-  use { "mg979/vim-visual-multi", branch = "master" }
+  { "mg979/vim-visual-multi", branch = "master" },
 
   --live server
-  use "manzeloth/live-server"
+  {"manzeloth/live-server"},
 
   --liveserver with live complete
-  use { "turbio/bracey.vim", run = "npm install --prefix server" }
+  { "turbio/bracey.vim", build = "npm install --prefix server" },
 
   -- better escaping
-  use {
+  {
     "max397574/better-escape.nvim",
     config = function()
       require("better_escape").setup()
     end,
-  }
-  use "ThePrimeagen/vim-be-good"
-  use {
+  },
+  {"ThePrimeagen/vim-be-good"},
+  {
     "jackMort/ChatGPT.nvim",
     config = function()
       require("chatgpt").setup {
-        -- optional configuration
       }
     end,
-    requires = {
-      "MunifTanjim/nui.nvim",
+   dependencies = {
+     "MunifTanjim/nui.nvim",
     },
-  }
+  },
   -- Graveyard
   -- use "romgrk/nvim-treesitter-context"
   -- use "mizlan/iswap.nvim"
   -- use {'christianchiarulli/nvim-ts-rainbow'}
   -- use "nvim-telescope/telescope-ui-selectvvim"
-  use "nvim-telescope/telescope-file-browser.nvim"
+  {"nvim-telescope/telescope-file-browser.nvim"},
   -- use 'David-Kunz/cmp-npm' -- doesn't seem to work
   -- use { "christianchiarulli/JABS.nvim" }
   -- use "lunarvim/vim-solidity"
@@ -333,11 +309,115 @@ return packer.startup(function(use)
   -- use "folke/trouble.nvim"
   -- use "drybalka/tree-climber.nvim"
   -- use "phaazon/hop.nvim"
-  use { "michaelb/sniprun", run = "bash ./install.sh" }
+   { "michaelb/sniprun", build = "bash ./install.sh" },
+  }
 
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then
-    require("packer").sync()
-  end
-end)
+  local opts = {
+  git = {
+    -- defaults for the `Lazy log` command
+    -- log = { "-10" }, -- show the last 10 commits
+    log = { "--since=3 days ago" }, -- show commits from the last 3 days
+    timeout = 300, -- kill processes that take more than 2 minutes
+    url_format = "https://github.com/%s.git",
+  },
+  lockfile = vim.fn.stdpath "data" .. "/lazy-lock.json", -- lockfile generated after running update.
+  concurrency = nil, ---@type number limit the maximum amount of concurrent tasks
+  dev = {
+    -- directory where you store your local plugin projects
+    path = "~/projects",
+    ---@type string[] plugins that match these patterns will use your local versions instead of being fetched from GitHub
+    patterns = {}, -- For example {"folke"}
+  },
+  install = {
+    -- install missing plugins on startup. This doesn't increase startup time.
+    missing = true,
+    -- try to load one of these colorschemes when starting an installation during startup
+    colorscheme = { "dull" },
+  },
+  ui = {
+    -- a number <1 is a percentage., >1 is a fixed size
+    size = { width = 0.8, height = 0.8 },
+    -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
+    border = "rounded",
+    icons = {
+      cmd = " ",
+      config = "",
+      event = "",
+      ft = " ",
+      init = " ",
+      keys = " ",
+      plugin = " ",
+      runtime = " ",
+      source = " ",
+      start = "",
+      task = "✔ ",
+    },
+    throttle = 20, -- how frequently should the ui process render events
+    custom_keys = {},
+    diff = {
+      -- diff command <d> can be one of:
+      -- * browser: opens the github compare view. Note that this is always mapped to <K> as well,
+      --   so you can have a different command for diff <d>
+      -- * git: will run git diff and open a buffer with filetype git
+      -- * terminal_git: will open a pseudo terminal with git diff
+      -- * diffview.nvim: will open Diffview to show the diff
+      cmd = "git",
+    },
+  },
+
+  checker = {
+    -- automatically check for plugin updates
+    enabled = false,
+    concurrency = nil, ---@type number? set to 1 to check for updates very slowly
+    notify = true, -- get a notification when new updates are found
+    frequency = 3600, -- check for updates every hour
+  },
+  change_detection = {
+    -- automatically check for config file changes and reload the ui
+    enabled = true,
+    notify = true, -- get a notification when changes are found
+  },
+  -- lazy can generate helptags from the headings in markdown readme files,
+  -- so :help works even for plugins that don't have vim docs.
+  -- when the readme opens with :help it will be correctly displayed as markdown
+  performance = {
+    cache = {
+      enabled = true,
+      path = vim.fn.stdpath "state" .. "/lazy/cache",
+      -- Once one of the following events triggers, caching will be disabled.
+      -- To cache all modules, set this to `{}`, but that is not recommended.
+      -- The default is to disable on:
+      --  * VimEnter: not useful to cache anything else beyond startup
+      --  * BufReadPre: this will be triggered early when opening a file from the command line directly
+      disable_events = { "VimEnter", "BufReadPre" },
+    },
+    reset_packpath = true, -- reset the package path to improve startup time
+    rtp = {
+      reset = false, -- reset the runtime path to $VIMRUNTIME and your config directory
+      ---@type string[] list any plugins you want to disable here
+      disabled_plugins = {
+        "gzip",
+        "matchit",
+        "matchparen",
+        "netrwPlugin",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
+      },
+    },
+  },
+  readme = {
+    root = vim.fn.stdpath "state" .. "/lazy/readme",
+    files = { "README.md" },
+    -- only generate markdown helptags for plugins that dont have docs
+    skip_if_doc_exists = true,
+  },
+}
+
+local status_ok, lazy = pcall(require, "lazy")
+if not status_ok then
+  return
+end
+
+lazy.setup(plugins, opts)
