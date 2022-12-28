@@ -1,13 +1,13 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
+  vim.fn.system {
     "git",
     "clone",
     "--filter=blob:none",
     "--single-branch",
     "https://github.com/folke/lazy.nvim.git",
     lazypath,
-  })
+  }
 end
 
 vim.opt.runtimepath:prepend(lazypath)
@@ -20,53 +20,54 @@ local plugins = {
   }, -- Plugin Manager
 
   -- Lua Development
-  { "nvim-lua/plenary.nvim"}, -- Useful lua functions used ny lots of plugins
-  { "nvim-lua/popup.nvim"},
-  { "christianchiarulli/lua-dev.nvim"},
+  { "nvim-lua/plenary.nvim" }, -- Useful lua functions used ny lots of plugins
+  { "nvim-lua/popup.nvim" },
+  { "christianchiarulli/lua-dev.nvim" },
   -- use "folke/lua-dev.nvim"
 
   -- LSP
-  { "neovim/nvim-lspconfig", -- enable LSP
-  -- use "williamboman/nvim-lsp-installer" -- simple to use language server installer
-   "williamboman/mason.nvim",
-   "williamboman/mason-lspconfig.nvim",
-   "jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
-   {
-    "ray-x/lsp_signature.nvim",
-    config = function()
-      require("lsp_signature").setup()
-    end,
-  },
+  {
+    "neovim/nvim-lspconfig", -- enable LSP
+    -- use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
+    {
+      "ray-x/lsp_signature.nvim",
+      config = function()
+        require("lsp_signature").setup()
+      end,
+    },
   },
   {
-   "SmiteshP/nvim-navic",
-   "simrat39/symbols-outline.nvim",
-   "b0o/SchemaStore.nvim",
-   "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
+    "SmiteshP/nvim-navic",
+    "simrat39/symbols-outline.nvim",
+    "b0o/SchemaStore.nvim",
+    "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
     "Maan2003/lsp_lines.nvim",
-},
+  },
   -- use "github/copilot.vim"
 
   {
-   "RRethy/vim-illuminate",
-   "j-hui/fidget.nvim",
-   "lvimuser/lsp-inlayhints.nvim",
-   "simrat39/inlay-hints.nvim",
-  -- "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-},
-{
-  -- Completion
-   "hrsh7th/nvim-cmp", -- completion
-  -- use "christianchiarulli/nvim-cmp"
-   "hrsh7th/cmp-buffer", -- buffer completions
-   "hrsh7th/cmp-path", -- path completions
-   "hrsh7th/cmp-cmdline", -- cmdline completions
-   "saadparwaiz1/cmp_luasnip", -- snippet completions
-    "hrsh7th/cmp-nvim-lsp", 
-   "hrsh7th/cmp-emoji",
-   "hrsh7th/cmp-nvim-lua",
- -- use "hrsh7th/cmp-copilot"
- },
+    "RRethy/vim-illuminate",
+    "j-hui/fidget.nvim",
+    "lvimuser/lsp-inlayhints.nvim",
+    "simrat39/inlay-hints.nvim",
+    -- "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+  },
+  {
+    -- Completion
+    "hrsh7th/nvim-cmp", -- completion
+    -- use "christianchiarulli/nvim-cmp"
+    "hrsh7th/cmp-buffer", -- buffer completions
+    "hrsh7th/cmp-path", -- path completions
+    "hrsh7th/cmp-cmdline", -- cmdline completions
+    "saadparwaiz1/cmp_luasnip", -- snippet completions
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-emoji",
+    "hrsh7th/cmp-nvim-lua",
+    -- use "hrsh7th/cmp-copilot"
+  },
   --github copilot lua
   {
     "zbirenbaum/copilot.lua",
@@ -85,153 +86,152 @@ local plugins = {
     end,
   },
   --tabnine
- { "tzachar/cmp-tabnine", build = "./install.sh" },
+  { "tzachar/cmp-tabnine", build = "./install.sh" },
   {
-   "L3MON4D3/LuaSnip", --snippet engine
-   "rafamadriz/friendly-snippets", -- a bunch of snippets to use
-},
-{
-  -- Syntax/Treesitter
-   "nvim-treesitter/nvim-treesitter",
-   "JoosepAlviste/nvim-ts-context-commentstring",
-   "p00f/nvim-ts-rainbow",
-   "nvim-treesitter/playground",
-   "windwp/nvim-ts-autotag",
-   "nvim-treesitter/nvim-treesitter-textobjects",
-  -- use "wellle/targets.vim"
-  -- use "RRethy/nvim-treesitter-textsubjects"
-   "kylechui/nvim-surround",
-   {
-    "abecodes/tabout.nvim",
-    wants = { "nvim-treesitter" }, -- or require if not used so far
-  }
-},
-{
-  -- Marks
-   "christianchiarulli/harpoon",
-   "MattesGroeger/vim-bookmarks",
-  -- Fuzzy Finder/Telescope
-   "nvim-telescope/telescope.nvim",
-   "nvim-telescope/telescope-media-files.nvim",
-   "tom-anders/telescope-vim-bookmarks.nvim",
-  -- Note Taking
-  "mickael-menu/zk-nvim",
-  -- Color
-  -- use "NvChad/nvim-colorizer.lua"
-  "uga-rosa/ccc.nvim",
-  "brenoprata10/nvim-highlight-colors",
-  -- Colorschemes
-  "lunarvim/onedarker.nvim",
-  "lunarvim/darkplus.nvim",
-  "folke/tokyonight.nvim",
-  "ellisonleao/gruvbox.nvim",
-  -- use "lunarvim/colorschemes"
-  -- Utility
-  "rcarriga/nvim-notify",
-  "stevearc/dressing.nvim",
-  "ghillb/cybu.nvim",
-  "moll/vim-bbye",
-  "lewis6991/impatient.nvim",
-  "lalitmee/browse.nvim",
-  -- Icon
-  "kyazdani42/nvim-web-devicons",
+    "L3MON4D3/LuaSnip", --snippet engine
+    "rafamadriz/friendly-snippets", -- a bunch of snippets to use
   },
   {
-  -- Debugging
-  "mfussenegger/nvim-dap",
-  "rcarriga/nvim-dap-ui",
-  "mfussenegger/nvim-dap-python",
-  "theHamsta/nvim-dap-virtual-text",
-  -- use "Pocco81/DAPInstall.nvim"
+    -- Syntax/Treesitter
+    "nvim-treesitter/nvim-treesitter",
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    "p00f/nvim-ts-rainbow",
+    "nvim-treesitter/playground",
+    "windwp/nvim-ts-autotag",
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    -- use "wellle/targets.vim"
+    -- use "RRethy/nvim-treesitter-textsubjects"
+    "kylechui/nvim-surround",
+    {
+      "abecodes/tabout.nvim",
+      wants = { "nvim-treesitter" }, -- or require if not used so far
+    },
+  },
+  {
+    -- Marks
+    "christianchiarulli/harpoon",
+    "MattesGroeger/vim-bookmarks",
+    -- Fuzzy Finder/Telescope
+    "nvim-telescope/telescope.nvim",
+    "nvim-telescope/telescope-media-files.nvim",
+    "tom-anders/telescope-vim-bookmarks.nvim",
+    -- Note Taking
+    "mickael-menu/zk-nvim",
+    -- Color
+    -- use "NvChad/nvim-colorizer.lua"
+    "uga-rosa/ccc.nvim",
+    "brenoprata10/nvim-highlight-colors",
+    -- Colorschemes
+    "lunarvim/onedarker.nvim",
+    "lunarvim/darkplus.nvim",
+    "folke/tokyonight.nvim",
+    "ellisonleao/gruvbox.nvim",
+    -- use "lunarvim/colorschemes"
+    -- Utility
+    "rcarriga/nvim-notify",
+    "stevearc/dressing.nvim",
+    "ghillb/cybu.nvim",
+    "moll/vim-bbye",
+    "lewis6991/impatient.nvim",
+    "lalitmee/browse.nvim",
+    -- Icon
+    "kyazdani42/nvim-web-devicons",
+  },
+  {
+    -- Debugging
+    "mfussenegger/nvim-dap",
+    "rcarriga/nvim-dap-ui",
+    "mfussenegger/nvim-dap-python",
+    "theHamsta/nvim-dap-virtual-text",
+    -- use "Pocco81/DAPInstall.nvim"
 
-  -- Tabline
-  "akinsho/bufferline.nvim",
-  "tiagovla/scope.nvim",
+    -- Tabline
+    "akinsho/bufferline.nvim",
+    "tiagovla/scope.nvim",
 
-  -- Statusline
-  "christianchiarulli/lualine.nvim",
+    -- Statusline
+    "christianchiarulli/lualine.nvim",
 
-  -- Startup
-  "goolord/alpha-nvim",
+    -- Startup
+    "goolord/alpha-nvim",
 
-  -- Indent
-  "lukas-reineke/indent-blankline.nvim",
+    -- Indent
+    "lukas-reineke/indent-blankline.nvim",
 
-  -- File Explorer
-  "kyazdani42/nvim-tree.lua",
-  "christianchiarulli/lir.nvim",
+    -- File Explorer
+    "kyazdani42/nvim-tree.lua",
+    "christianchiarulli/lir.nvim",
 
-  -- Comment
-  "numToStr/Comment.nvim",
-  "folke/todo-comments.nvim",
+    -- Comment
+    "numToStr/Comment.nvim",
+    "folke/todo-comments.nvim",
 
-  -- Terminal
-  "akinsho/toggleterm.nvim",
+    -- Terminal
+    "akinsho/toggleterm.nvim",
 
-  -- Project
-  "ahmedkhalf/project.nvim",
-  "windwp/nvim-spectre",
-},
-{
-  -- Session
-  "rmagatti/auto-session",
-  "rmagatti/session-lens",
+    -- Project
+    "ahmedkhalf/project.nvim",
+    "windwp/nvim-spectre",
+  },
+  {
+    -- Session
+    "rmagatti/auto-session",
+    "rmagatti/session-lens",
 
-  -- Quickfix
-  "kevinhwang91/nvim-bqf",
+    -- Quickfix
+    "kevinhwang91/nvim-bqf",
 
-  -- Code Runner
-  "is0n/jaq-nvim",
+    -- Code Runner
+    "is0n/jaq-nvim",
   },
   {
     "0x100101/lab.nvim",
     build = "cd js && npm ci",
   },
   {
-  -- Git
-  "lewis6991/gitsigns.nvim",
-  "f-person/git-blame.nvim",
-  "ruifm/gitlinker.nvim",
-  "mattn/vim-gist",
-  "mattn/webapi-vim",
+    -- Git
+    "lewis6991/gitsigns.nvim",
+    "f-person/git-blame.nvim",
+    "ruifm/gitlinker.nvim",
+    "mattn/vim-gist",
+    "mattn/webapi-vim",
 
-  -- Github
-  "pwntester/octo.nvim",
+    -- Github
+    "pwntester/octo.nvim",
 
-  -- Editing Support
-  "windwp/nvim-autopairs",
-  "monaqa/dial.nvim",
-  "nacro90/numb.nvim",
-  "andymass/vim-matchup",
-  "folke/zen-mode.nvim",
-  -- use "Pocco81/true-zen.nvim"
-  "karb94/neoscroll.nvim",
-  "junegunn/vim-slash",
+    -- Editing Support
+    "windwp/nvim-autopairs",
+    "monaqa/dial.nvim",
+    "nacro90/numb.nvim",
+    "andymass/vim-matchup",
+    "folke/zen-mode.nvim",
+    -- use "Pocco81/true-zen.nvim"
+    "karb94/neoscroll.nvim",
+    "junegunn/vim-slash",
 
-  -- Motion
-  "phaazon/hop.nvim",
-  -- use "jinh0/eyeliner.nvim"
+    -- Motion
+    "phaazon/hop.nvim",
+    -- use "jinh0/eyeliner.nvim"
 
-  -- Keybinding
-  "folke/which-key.nvim",
+    -- Keybinding
+    "folke/which-key.nvim",
 
-  -- Java
-  "mfussenegger/nvim-jdtls",
-},
+    -- Java
+    "mfussenegger/nvim-jdtls",
+  },
   -- Rust
   { "christianchiarulli/rust-tools.nvim", branch = "modularize_and_inlay_rewrite" },
-  {  "Saecki/crates.nvim" },
+  { "Saecki/crates.nvim" },
 
   -- Typescript TODO: set this up, also add keybinds to ftplugin
-  { "jose-elias-alvarez/typescript.nvim"},
+  { "jose-elias-alvarez/typescript.nvim" },
 
   -- Markdown
-   {
+  {
     "iamcco/markdown-preview.nvim",
     build = "cd app && npm install",
     ft = "markdown",
   },
-
   --auto save
   {
     "Pocco81/auto-save.nvim",
@@ -243,13 +243,13 @@ local plugins = {
     end,
   },
   --move lines
-  {"fedepujol/move.nvim"},
+  { "fedepujol/move.nvim" },
 
   --multi cursor
   { "mg979/vim-visual-multi", branch = "master" },
 
   --live server
-  {"manzeloth/live-server"},
+  { "manzeloth/live-server" },
 
   --liveserver with live complete
   { "turbio/bracey.vim", build = "npm install --prefix server" },
@@ -261,23 +261,30 @@ local plugins = {
       require("better_escape").setup()
     end,
   },
-  {"ThePrimeagen/vim-be-good"},
+  { "ThePrimeagen/vim-be-good" },
   {
     "jackMort/ChatGPT.nvim",
     config = function()
-      require("chatgpt").setup {
-      }
+      require("chatgpt").setup {}
     end,
-   dependencies = {
-     "MunifTanjim/nui.nvim",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
     },
+  },
+  --commadline
+  {
+    "gelguy/wilder.nvim",
+    config = function()
+      require("wilder").setup()
+      -- config goes here
+    end,
   },
   -- Graveyard
   -- use "romgrk/nvim-treesitter-context"
   -- use "mizlan/iswap.nvim"
   -- use {'christianchiarulli/nvim-ts-rainbow'}
   -- use "nvim-telescope/telescope-ui-selectvvim"
-  {"nvim-telescope/telescope-file-browser.nvim"},
+  { "nvim-telescope/telescope-file-browser.nvim" },
   -- use 'David-Kunz/cmp-npm' -- doesn't seem to work
   -- use { "christianchiarulli/JABS.nvim" }
   -- use "lunarvim/vim-solidity"
@@ -301,10 +308,10 @@ local plugins = {
   -- use "folke/trouble.nvim"
   -- use "drybalka/tree-climber.nvim"
   -- use "phaazon/hop.nvim"
-   { "michaelb/sniprun", build = "bash ./install.sh" },
-  }
+  { "michaelb/sniprun", build = "bash ./install.sh" },
+}
 
-  local opts = {
+local opts = {
   git = {
     -- defaults for the `Lazy log` command
     -- log = { "-10" }, -- show the last 10 commits
