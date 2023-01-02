@@ -187,3 +187,10 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     vim.lsp.buf.format { async = true }
   end,
 })
+
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  pattern = { "*" },
+  callback = function()
+    vim.lsp.buf.format()
+  end,
+})

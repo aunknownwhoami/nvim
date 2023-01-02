@@ -21,12 +21,17 @@ null_ls.setup {
       extra_filetypes = { "python" },
       extra_args = { "--fast" },
     },
+    --lua
     formatting.stylua,
+    --shell
     formatting.shfmt,
-    formatting.google_java_format,
-    diagnostics.flake8,
-    diagnostics.cpplint,
     diagnostics.shellcheck,
+    --java
+    formatting.google_java_format,
+    --python
+    diagnostics.flake8,
+    --c/cpp
+    diagnostics.cpplint,
   },
 }
 
