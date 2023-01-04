@@ -279,6 +279,7 @@ local plugins = {
       -- config goes here
     end,
   },
+  { "mattn/emmet-vim" },
   -- Graveyard
   -- use "romgrk/nvim-treesitter-context"
   -- use "mizlan/iswap.nvim"
@@ -331,7 +332,7 @@ local opts = {
     -- install missing plugins on startup. This doesn't increase startup time.
     missing = true,
     -- try to load one of these colorschemes when starting an installation during startup
-    colorscheme = { "tokyonight" },
+    colorscheme = { "tokyonight-night" },
   },
   ui = {
     -- a number <1 is a percentage., >1 is a fixed size
