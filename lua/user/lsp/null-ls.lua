@@ -24,8 +24,8 @@ null_ls.setup {
     --lua
     formatting.stylua,
     --shell
-    formatting.shfmt,
-    diagnostics.shellcheck,
+    formatting.shfmt.with { extra_filetypes = { "sh", "zsh" } },
+    diagnostics.shellcheck.with { extra_filetypes = { "sh", "zsh" } },
     --java
     formatting.google_java_format,
     --python
