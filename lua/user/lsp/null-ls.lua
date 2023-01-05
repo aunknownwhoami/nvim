@@ -14,7 +14,7 @@ null_ls.setup {
   debug = true,
   sources = {
     formatting.prettier.with {
-      extra_filetypes = { "toml", "solidity" },
+      extra_filetypes = { "toml", "solidity",  },
       extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
     },
     formatting.black.with {
@@ -25,7 +25,7 @@ null_ls.setup {
     formatting.stylua,
     --shell
     formatting.shfmt.with { extra_filetypes = { "sh", "zsh" } },
-    diagnostics.shellcheck.with { extra_filetypes = { "sh", "zsh" } },
+    diagnostics.shellcheck,
     --java
     formatting.google_java_format,
     --python
